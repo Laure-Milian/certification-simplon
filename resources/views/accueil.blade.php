@@ -15,10 +15,38 @@
       <div class="col-3">
         <h2 class="site">Le trésor des loutres pirates</h2>
       </div>
-    </div>
+
+      <!-- Barre de recherche + choix catégories  -->
+
+      <div class="col-6">
+        <div class="navbar">
+         <form class="navbar-form" role="search">
+           <ul class="nav navbar-nav">
+             <li class="dropdown">
+               <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">Catégories</button>
+               <ul class="dropdown-menu">
+                 <li><a class="dropdown-item" href="#ballerines">Ballerines</a></li>
+                 <li><a class="dropdown-item" href="#escarpins">Escarpins</a></li>
+                 <li><a class="dropdown-item" href="#bottes">Bottes</a></li>
+                 <li><a class="dropdown-item" href="#baskets">Baskets</a></li>
+               </ul>
+             </li>
+           </ul>
+           <div class="input-group">
+             <label for="input"></label>
+             <input id="input" type="text" class="form-control" placeholder="Trouver un produit">
+             <div class="input-group-btn">
+               <button class="btn btn-secondary" type="submit">Chercher</button>
+             </div>
+           </div>
+         </form>
+       </div>
+     </div>
+
   </div>
+</div>
 
 
-  <script type="text/javascript" src="/js/app.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
 </body>
 </html>
