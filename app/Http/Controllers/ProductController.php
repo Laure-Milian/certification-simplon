@@ -16,4 +16,9 @@ class ProductController extends Controller
     	$product = Product::findOrFail($id);
     	return view('show', ['product' => $product]);
     }
+
+    public function findProduct(Request $request) {
+    	$products = Product::where('name', 'like', $request->search . '%')->get();
+    	return view('welcome', ['products' => $products]);
+    }
 }
