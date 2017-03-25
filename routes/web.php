@@ -11,10 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+// Générés par Laravel pour l'authentication :
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+
+// Ajouts Laure :
+Route::get('/', 'ProductController@getHome');
+
+Route::get('/{id}', 'ProductController@getProduct');
