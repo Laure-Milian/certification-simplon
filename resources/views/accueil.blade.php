@@ -43,6 +43,17 @@
        </div>
      </div>
 
+     <!-- Mon espace + s'inscrire -->
+
+     <div class="col-3">
+      <div class="loginPart">
+        <form class="form-inline pull-xs-right signUp">
+          <input id="email" type="email" class="form-control" name="email" value="" placeholder="Mail"> 
+          <input id="password" type="password" class="form-control" name="password" value="" placeholder="Mot de passe">
+          <a class="btn btn-primary" href="#"><i class="fa fa-sign-in fa-lg fa-fw"></i>Login</a>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 
