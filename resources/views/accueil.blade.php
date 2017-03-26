@@ -9,19 +9,15 @@
 </head>
 <body>
 
-  <!-- HEADER -->
-
-  <!-- Nom du site -->
-
   <div class="container-fluid">
-    <div class="row title">
-      <div class="col-3">
-        <h2 class="site">Le trésor des loutres pirates</h2>
+    <div class="row title col-12">
+      <div class="col-md-4">
+        <div class="product-nav">
+          <h2 class="site">Le trésor des loutres pirates</h2>
+        </div>
       </div>
 
-      <!-- Barre de recherche + choix catégories  -->
-
-      <div class="col-6">
+      <div class="col-md-4">
         <div class="navbar">
          <form class="navbar-form" role="search">
            <ul class="nav navbar-nav">
@@ -35,20 +31,17 @@
                </ul>
              </li>
            </ul>
-           <div class="input-group">
-             <label for="input"></label>
-             <input id="input" type="text" class="form-control" placeholder="Trouver un produit">
-             <div class="input-group-btn">
-               <button class="btn btn-primary" type="submit">Chercher</button>
-             </div>
+           <label for="input"></label>
+           <input id="input" type="text" class="form-control" placeholder="Trouver un produit">
+           <div class="input-group-btn">
+             <button class="btn" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
            </div>
          </form>
        </div>
-      </div>
+     </div>
 
-      <!-- Mon espace + s'inscrire -->
-
-       <div class="col-3">
+     <div class="col-md-4">
+      <div class="product-nav">
         <div class="loginPart">
           <form class="form-inline pull-xs-right signUp">
             <input id="email" type="email" class="form-control" name="email" value="" placeholder="Mail"> 
@@ -59,58 +52,52 @@
       </div>
     </div>
   </div>
-  
-  <!-- FIN HEADER -->
+</div>
 
-  <!-- BLOC 1 : grosse image à gauche 2 images à droite -->
-  <div class="container-fluid">
-    <div class="row bloc1 col-12">
-      <div class="col-md-8">
-        <div class="product-item">
-          <img src="images/escarpins.jpg" class="img-responsive">
-        </div>
+<div class="container-fluid">
+  <div class="row bloc1 col-12">
+    <div class="col-md-8">
+      <div class="product-item">
+        <img src="images/escarpins.jpg" class="img-responsive">
       </div>
-      <div class="col-md-4">
-        <div class="product-item">
-          <div class="column">
-            <div class="item img">
-              <img src="images/baskets.jpg" class="img-responsive">
-            </div>
-            <div class="item">
-              <img src="images/bottines.jpg" class="img-responsive">
-            </div>
+    </div>
+    <div class="col-md-4">
+      <div class="product-item">
+        <div class="column">
+          <div class="item img">
+            <img src="images/baskets.jpg" class="img-responsive">
+          </div>
+          <div class="item">
+            <img src="images/bottines.jpg" class="img-responsive">
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- BLOC 2 : 3 images  -->
-  <div class="container-fluid">
-    <div class="row bloc2">
-      <div class="gallery col-12">
-        <h1 class="gallery-title">Notre sélection</h1>
+<div class="container-fluid">
+  <div class="row bloc2">
+    <div class="gallery col-12">
+      <h1 class="gallery-title">Notre sélection</h1>
+    </div>
+    <div class="col-md-4">
+      <div class="product-item">
+        <img src="images/escarpins.jpg" class="img-responsive">
       </div>
-
-      <div class="col-md-4">
-        <div class="product-item">
-          <img src="images/escarpins.jpg" class="img-responsive">
-        </div>
+    </div>
+    <div class="col-md-4">
+      <div class="product-item">
+        <img src="images/baskets.jpg" class="img-responsive">
       </div>
-
-      <div class="col-md-4">
-        <div class="product-item">
-          <img src="images/baskets.jpg" class="img-responsive">
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="product-item">
-          <img src="images/bottines.jpg" class="img-responsive">
-        </div>
+    </div>
+    <div class="col-md-4">
+      <div class="product-item">
+        <img src="images/bottines.jpg" class="img-responsive">
       </div>
     </div>
   </div>
+</div>
 
 <script type="text/javascript" src="/js/app.js"></script>
 </body>

@@ -1,5 +1,4 @@
 .site {
-    border: grey solid 2px;
     padding: 1em;
     margin: 0;
     text-align: center;
@@ -7,13 +6,18 @@
 
 .navbar {
     padding-top: 3em;
+    margin: auto;
+    max-width: 80%;
+}
+
+.navbar-nav {
     margin: 0;
-    position: relative;
 }
 
 .navbar-form {
     display: flex;
     flex-direction: row;
+    margin: 0;
 }
 
 .signUp {
@@ -24,13 +28,12 @@
 }
 
 .gallery-title {
-    color: #42B32F;
+    color: grey;
     margin: 0;
     text-align: center;
-    font-weight: 500;
 }
 
-.row.bloc1 {
+.row.bloc1, .row.title {
     display: flex;
     flex-direction: row;
     margin: 0;
