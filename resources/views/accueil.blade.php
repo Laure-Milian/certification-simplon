@@ -58,17 +58,17 @@
   <div class="row bloc1 col-12">
     <div class="col-md-8">
       <div class="product-item">
-        <img src="images/escarpins.jpg" class="img-responsive">
+        <img src="images/escarpins1.jpg" class="img-responsive">
       </div>
     </div>
     <div class="col-md-4">
       <div class="product-item">
         <div class="column">
           <div class="item img">
-            <img src="images/baskets.jpg" class="img-responsive">
+            <img src="images/baskets1.jpg" class="img-responsive">
           </div>
           <div class="item">
-            <img src="images/bottines.jpg" class="img-responsive">
+            <img src="images/bottines1.jpg" class="img-responsive">
           </div>
         </div>
       </div>
@@ -83,17 +83,57 @@
     </div>
     <div class="col-md-4">
       <div class="product-item">
-        <img src="images/escarpins.jpg" class="img-responsive">
+        <img src="images/escarpins1.jpg" class="img-responsive">
       </div>
     </div>
     <div class="col-md-4">
       <div class="product-item">
-        <img src="images/baskets.jpg" class="img-responsive">
+        <img src="images/baskets1.jpg" class="img-responsive">
       </div>
     </div>
     <div class="col-md-4">
       <div class="product-item">
-        <img src="images/bottines.jpg" class="img-responsive">
+        <img src="images/bottines1.jpg" class="img-responsive">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row bloc2">
+    <div class="col-md-4">
+      <div class="product-item">
+        <img src="images/bottines1.jpg" class="img-responsive">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="product-item">
+        <img src="images/escarpins1.jpg" class="img-responsive">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="product-item">
+        <img src="images/baskets1.jpg" class="img-responsive">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row bloc2">
+    <div class="col-md-4">
+      <div class="product-item">
+        <img src="images/baskets1.jpg" class="img-responsive">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="product-item">
+        <img src="images/bottines1.jpg" class="img-responsive">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="product-item">
+        <img src="images/escarpins1.jpg" class="img-responsive">
       </div>
     </div>
   </div>
