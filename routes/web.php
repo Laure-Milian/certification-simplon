@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('accueil');
 });
 
-
 // Générés par Laravel pour l'authentication :
 Auth::routes();
 
