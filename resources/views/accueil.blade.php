@@ -14,7 +14,7 @@
   <!-- Nom du site -->
 
   <div class="container-fluid">
-    <div class="row">
+    <div class="row title">
       <div class="col-3">
         <h2 class="site">Le trésor des loutres pirates</h2>
       </div>
@@ -26,7 +26,7 @@
          <form class="navbar-form" role="search">
            <ul class="nav navbar-nav">
              <li class="dropdown">
-               <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">Catégories</button>
+               <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Catégories</button>
                <ul class="dropdown-menu">
                  <li><a class="dropdown-item" href="#ballerines">Ballerines</a></li>
                  <li><a class="dropdown-item" href="#escarpins">Escarpins</a></li>
@@ -39,7 +39,7 @@
              <label for="input"></label>
              <input id="input" type="text" class="form-control" placeholder="Trouver un produit">
              <div class="input-group-btn">
-               <button class="btn btn-secondary" type="submit">Chercher</button>
+               <button class="btn btn-primary" type="submit">Chercher</button>
              </div>
            </div>
          </form>
@@ -64,36 +64,50 @@
 
   <!-- BLOC 1 : grosse image à gauche 2 images à droite -->
   <div class="container-fluid">
-    <div class="row bloc1">
-      <div class="gallery_product col col-md-8 filter hdpe">
-        <img src="images/escarpins.jpg" class="img-responsive">
+    <div class="row bloc1 col-12">
+      <div class="col-md-8">
+        <div class="product-item">
+          <img src="images/escarpins.jpg" class="img-responsive">
+        </div>
       </div>
-      <div class="column col-6 col-md-4 filter hdpe">
-        <div class="gallery_product">
-          <img src="images/baskets.jpg" class="img-responsive">
-          <img src="images/bottines.jpg" class="img-responsive">
+      <div class="col-md-4">
+        <div class="product-item">
+          <div class="column">
+            <div class="item img">
+              <img src="images/baskets.jpg" class="img-responsive">
+            </div>
+            <div class="item">
+              <img src="images/bottines.jpg" class="img-responsive">
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
   <!-- BLOC 2 : 3 images  -->
-  <div class="container">
+  <div class="container-fluid">
     <div class="row bloc2">
-      <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gallery col-12">
         <h1 class="gallery-title">Notre sélection</h1>
       </div>
 
-      <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-        <img src="images/escarpins.jpg" class="img-responsive">
+      <div class="col-md-4">
+        <div class="product-item">
+          <img src="images/escarpins.jpg" class="img-responsive">
+        </div>
       </div>
 
-      <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-        <img src="images/baskets.jpg" class="img-responsive">
+      <div class="col-md-4">
+        <div class="product-item">
+          <img src="images/baskets.jpg" class="img-responsive">
+        </div>
       </div>
 
-      <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-        <img src="images/bottines.jpg" class="img-responsive">
+      <div class="col-md-4">
+        <div class="product-item">
+          <img src="images/bottines.jpg" class="img-responsive">
+        </div>
       </div>
     </div>
   </div>
