@@ -23,7 +23,15 @@
 .signUp {
     display: flex;
     flex-direction: column;
-    padding-top: 1.5em;
+    margin: 0;
+}
+
+.links {
+    padding-top: 2.5em;
+}
+
+.logLink {
+    padding: 1em;
     margin: 0;
 }
 
