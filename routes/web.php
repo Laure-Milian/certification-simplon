@@ -23,7 +23,6 @@ Route::get('/home', 'HomeController@index');
 // Ajouts Laure :
 Route::get('/', 'ProductController@getHome');
 
-Route::get('/{id}', 'ProductController@getProduct');
-
 Route::post('/search', 'ProductController@findProduct');
 
+Route::get('/{id}', 'ProductController@getProduct');
