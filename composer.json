@@ -7,7 +7,8 @@
     "require": {
         "php": ">=5.6.4",
         "backpack/base": "^0.7.16",
-        "doctrine/dbal": "v2.4.2",
+        "backpack/crud": "^3.2",
+        "doctrine/dbal": "v2.5",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0"
     },
