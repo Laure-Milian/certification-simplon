@@ -16,7 +16,7 @@
     <div class="row title col-12">
       <div class="col-md-4">
         <div class="product-nav">
-          <h2 class="site">Le Trésor des Loutres Pirates</h2>
+          <h1 class="site">Le Trésor des Loutres Pirates</h1>
         </div>
       </div>
 
@@ -63,7 +63,7 @@
               @endif
                 <div class="content">
                     <div class="title m-b-md">
-                      {{$products}}
+
                     </div>
                 </div>
             </div>
