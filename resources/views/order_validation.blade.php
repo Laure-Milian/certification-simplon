@@ -3,7 +3,6 @@
 @section('content')
 
 <div class="container">
-<?php var_dump($_SESSION["cart"]) ?>
 	<div>
 		<h1>Valider votre commande</h1>
 	</div>
@@ -12,15 +11,19 @@
 		<div class="panel panel-default">
 			<table class="table">
 				<tr>
-					<th>Produit</th>
+					<th>Nom du produit</th>
 					<th>Quantité</th>
-					<th>Prix</th>
+					<th>Prix à l'unité</th>
+					<th>Prix total</th>
 				</tr>
+				@foreach ($cart_products as $cart_product)
 				<tr>
-					<td>Bla</td>
-					<td>Bla</td>
-					<td>Bla</td>
+					<td>{{$cart_product["name"]}}</td>
+					<td>{{$cart_product["quantity"]}}</td>
+					<td>{{$cart_product["price"] / 100}} €</td>
+					<td>{{($cart_product["price"] * $cart_product["quantity"]) / 100}} €</td>
 				</tr>
+				@endforeach
 			</table>
 		</div>
 	</div>

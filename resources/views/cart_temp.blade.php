@@ -7,8 +7,9 @@
 <?php 
 session_start() ;
 $_SESSION["cart"] = [
-	[ "product_id" => 1, "quantity" => 2 ],
-	[ "product_id" => 2, "quantity" => 4]
+	[ "product_id" => 1, "name" => "carotte", "price" => 200, "quantity" => 2 ],
+	[ "product_id" => 2, "name" => "blé", "price" => 450, "quantity" => 4],
+	[ "product_id" => 3, "name" => "sel", "price" => 500, "quantity" => 40]
 ];
 ?>
 

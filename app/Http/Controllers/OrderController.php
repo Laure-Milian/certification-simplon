@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
 use App\Order;
 
 class OrderController extends Controller
@@ -25,6 +26,7 @@ class OrderController extends Controller
     public function index()
     {
     	session_start();
-        return view('order_validation');
+    	$cart_products = $_SESSION['cart'];
+        return view('order_validation', ['cart_products' => $cart_products]);
     }
 }
