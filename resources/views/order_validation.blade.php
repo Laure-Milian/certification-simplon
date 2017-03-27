@@ -35,7 +35,44 @@
 		<h2>Livraison</h2>
 		<div class="panel panel-default">
 			<div>
-				Votre adresse :
+				Saisir vos coordonnées
+				<form>
+					<div>
+						Votre nom :
+					</div>
+					<div>
+						<label for="address">Adresse :</label>
+					</div>
+					<div>
+						<input id="address" type="text" name="address">
+					</div>
+					<div>
+						<label for="zip_code">Code postal :</label>
+					</div>
+					<div>
+						<input id="zip_code" type="number" name="zip_code">
+					</div>
+					<div>
+						<label for="city">Ville :</label>
+					</div>
+					<div>
+						<input id="city" type="text" name="city">
+					</div>
+					<div>
+						<label for="country">Pays :</label>
+					</div>
+					<div>
+						<select id="country" name="country">
+							<option>France</option>
+						</select>
+					</div>
+					<div>
+						<label for="delivery_comment">Commentaire pour le livreur :</label>
+					</div>
+					<div>
+						<textarea id="delivery_comment" name="delivery_comment"></textarea>
+					</div>
+				</form>
 			</div>
 			<div>
 				Choisir un mode de livraison :
