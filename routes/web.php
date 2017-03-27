@@ -20,10 +20,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-// Ajouts Laure :
 Route::get('/', 'ProductController@getHome');
 
-Route::get('/{id}', 'ProductController@getProduct');
+// TEMPORAIRE A SUPPRIMER 
+Route::get('/cart_temp', function() {
+	return view('cart_temp');
+});
+
 
 Route::post('/search', 'ProductController@findProduct');
+
+Route::get('/{id}', 'ProductController@getProduct');
 
