@@ -15,14 +15,14 @@
   <!-- TITRE -->
   <div class="container-fluid">
     <div class="row title col-12">
-      <div class="col-md-4">
+      <div class="col-md-4 col-xs-4">
         <div class="product-nav">
           <h1 class="site">Le Trésor des Loutres Pirates</h1>
         </div>
       </div>
 
       <!-- BARRE DE NAVIGATION : CATEGORIES -->
-      <div class="col-md-4">
+      <div class="col-md-4 col-xs-4">
         <div class="navbar">
          <form class="navbar-form" role="search">
            <ul class="nav navbar-nav">
@@ -48,7 +48,7 @@
      </div>
 
     <!-- CONNEXION / INSCRIPTION -->
-     <div class="col-md-4">
+     <div class="col-md-4 col-xs-4">
       <div class="product-nav">
         <div class="loginPart">
           <div class="form-inline pull-xs-right signUp">

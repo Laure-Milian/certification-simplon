@@ -3,14 +3,14 @@
 @section('content')
 
 <div class="container">
-    <div class="card">
+    <div class="card product-details">
         <div class="row">
-            <div class="image-wrapper col-md-5">
+            <div class="image-wrapper col-sm-5 ">
 
                 <img class="product-image img-responsive" src="http://placekitten.com/400/252" />
 
             </div>
-            <div class="details col-md-7">
+            <div class="details col-sm-7">
 
                 <h2 class="product-title"> {{ $product->name }} </h2>
                 <h3 class="product-category"><a href="#category">Catégorie</a></h3> <!-- Injecter la catégorie du livre -->
