@@ -22,13 +22,20 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/', 'ProductController@getHome');
 
+Route::post('/search', 'ProductController@findProduct');
+
+
 // TEMPORAIRE A SUPPRIMER 
 Route::get('/cart_temp', function() {
 	return view('cart_temp');
 });
 
+// AJOUTS LAURE POUR PARTIE ORDER
+Route::get('/order_validation', 'OrderController@index');
 
-Route::post('/search', 'ProductController@findProduct');
+// FIN AJOUTS LAURE POUR PARTIE ORDER
+
+
 
 Route::get('/{id}', 'ProductController@getProduct');
 
