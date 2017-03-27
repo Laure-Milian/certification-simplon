@@ -27,6 +27,11 @@ class OrderController extends Controller
     {
     	session_start();
     	$cart_products = $_SESSION['cart'];
-        return view('order_validation', ['cart_products' => $cart_products]);
+    	$total_price = 0;
+    	foreach ($cart_products as $cart_product) {
+    		$price_quantity = $cart_product["price"] * $cart_product["quantity"];
+    		$total_price = $total_price + $price_quantity;
+    	}
+        return view('order_validation', ['cart_products' => $cart_products, 'total_price' => $total_price]);
     }
 }

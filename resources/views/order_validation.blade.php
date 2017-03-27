@@ -24,6 +24,10 @@
 					<td>{{($cart_product["price"] * $cart_product["quantity"]) / 100}} €</td>
 				</tr>
 				@endforeach
+				<tr>
+					<td colspan="3">Total de la commande : </td>
+					<td>{{$total_price / 100}} €</td>
+				</tr>
 			</table>
 		</div>
 	</div>
