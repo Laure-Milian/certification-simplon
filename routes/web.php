@@ -20,10 +20,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-// Ajouts Laure :
-Route::get('/', 'ProductController@getHome');
+// Gestion du panier
+Route::get('/cart', 'OrderController@getCart');
 
-Route::get('/{id}', 'ProductController@getProduct');
+
 
 Route::post('/search', 'ProductController@findProduct');
 
+// Ajouts Laure :
+Route::get('/', 'ProductController@getHome');
+Route::get('/{id}', 'ProductController@getProduct');
