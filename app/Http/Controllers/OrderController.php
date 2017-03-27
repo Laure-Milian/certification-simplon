@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Order;
+use Auth;
 
 class OrderController extends Controller
 {
@@ -34,7 +35,15 @@ class OrderController extends Controller
     		$price_quantity = $cart_product["price"] * $cart_product["quantity"];
     		$total_price = $total_price + $price_quantity;
     	}
+        // Vérifie si l'utilisateur a déjà passé une commande
+        $current_user_id = Auth::user()->id;
+     	$last_order = Order::where('user_id', $current_user_id)
+     	->orderBy('created_at', 'desc')
+     	->first();
+     	$known_address = ($last_order) ? true : false;
    		// Retourne la vue
-        return view('order_validation', ['cart_products' => $cart_products, 'total_price' => $total_price]);
+     	return view('order_validation', ['cart_products' => $cart_products, 'total_price' => $total_price, 'known_address' => $known_address]);
     }
+
+
 }

@@ -35,6 +35,9 @@
 		<h2>Livraison</h2>
 		<div class="panel panel-default">
 			<div>
+			@if ($known_address)
+			coucou
+			@else
 				Saisir vos coordonnées
 				<form>
 					<div>
@@ -73,6 +76,7 @@
 						<textarea id="delivery_comment" name="delivery_comment"></textarea>
 					</div>
 				</form>
+			@endif
 			</div>
 			<div>
 				Choisir un mode de livraison :
