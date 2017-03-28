@@ -7,4 +7,5 @@ Route::group([
 ], function() {
     // your CRUD resources and other admin routes here
     CRUD::resource('tag', 'TagCrudController');
-}); 
+
+});

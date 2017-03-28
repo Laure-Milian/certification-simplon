@@ -30,6 +30,11 @@ class TagCrudController extends CrudController
 		*/
 
         $this->crud->setFromDb();
+        $this->crud->setColumns(['name']);
+        $this->crud->addField([
+            'name' => 'name', 
+            'label' => "Tag name"
+            ]);
 
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');

@@ -15,12 +15,12 @@ class Tag extends Model
 	|--------------------------------------------------------------------------
 	*/
 
-    //protected $table = 'tags';
+    protected $table = 'tags';
     //protected $primaryKey = 'id';
-    // public $timestamps = false;
+    public $timestamps = true;
     // protected $guarded = ['id'];
-    // protected $fillable = [];
-    // protected $hidden = [];
+    protected $fillable = ['name'];
+    // protected $hidden = ['id'];
     // protected $dates = [];
 
     /*
@@ -34,7 +34,9 @@ class Tag extends Model
 	| RELATIONS
 	|--------------------------------------------------------------------------
 	*/
-
+	public function articles() {
+		return $this->hasMany('App\Models\Article', 'article_tag');
+	}
     /*
 	|--------------------------------------------------------------------------
 	| SCOPES
