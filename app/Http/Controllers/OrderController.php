@@ -26,24 +26,28 @@ class OrderController extends Controller
      */
     public function index()
     {
-    	// Récupère les données de la session
-    	session_start();
-    	$cart_products = $_SESSION['cart'];
-    	$total_price = 0;
-    	// Détermine le prix total de la commande
-    	foreach ($cart_products as $cart_product) {
-    		$price_quantity = $cart_product["price"] * $cart_product["quantity"];
-    		$total_price = $total_price + $price_quantity;
-    	}
-        // Vérifie si l'utilisateur a déjà passé une commande
+        session_start();
+        $cart_products = $_SESSION['cart'];
         $current_user_id = Auth::user()->id;
-     	$last_order = Order::where('user_id', $current_user_id)
-     	->orderBy('created_at', 'desc')
-     	->first();
+        $total_price = $this->getTotalPrice($cart_products);
+        $last_order = $this->getLastOrder($current_user_id);
      	$known_address = ($last_order) ? true : false;
-   		// Retourne la vue
-     	return view('order_validation', ['cart_products' => $cart_products, 'total_price' => $total_price, 'known_address' => $known_address]);
+     	return view('order_validation', ['cart_products' => $cart_products, 'total_price' => $total_price, 'known_address' => $known_address, 'last_order' => $last_order]);
     }
 
+    public function getTotalPrice($cart_products) {
+        $total_price = 0;
+        foreach ($cart_products as $product) {
+            $price_quantity = $product["price"] * $product["quantity"];
+            $total_price = $total_price + $price_quantity;
+        }
+        return $total_price;
+    }
+
+    public function getLastOrder($user_id) {
+        return Order::where('user_id', $user_id)
+            ->orderBy('created_at', 'desc')
+            ->first();
+    }
 
 }

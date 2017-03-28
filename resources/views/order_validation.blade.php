@@ -32,12 +32,32 @@
 		</div>
 	</div>
 	<div>
-		<h2>Livraison</h2>
+		<h2>Coordonnées</h2>
 		<div class="panel panel-default">
 			<div>
-			@if ($known_address)
-			coucou
-			@else
+				@if ($known_address)
+				<div>
+					Votre nom :
+				</div>
+				<div>
+				Adresse : {{$last_order->address}}
+				</div>
+				<div>
+				Code postal : {{$last_order->zip_code}}
+				</div>
+				<div>
+				Ville : {{$last_order->city}}
+				</div>
+				<div>
+				Pays : {{$last_order->country}}
+				</div>
+				<div>
+				Commentaire pour le livreur : {{$last_order->comment}}
+				</div>
+				<div>
+					<a href="/changeAddress">Modifier ces informations</a>
+				</div>
+				@else
 				Saisir vos coordonnées
 				<form>
 					<div>
@@ -76,8 +96,13 @@
 						<textarea id="delivery_comment" name="delivery_comment"></textarea>
 					</div>
 				</form>
-			@endif
+				@endif
 			</div>
+		</div>
+	</div>
+	<div>
+		<h2>Mode de livraison</h2>
+		<div class="panel panel-default">	
 			<div>
 				Choisir un mode de livraison :
 				- Lettre verte / Ecopli - Gratuit
