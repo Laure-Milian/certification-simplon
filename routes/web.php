@@ -27,3 +27,12 @@ Route::get('/{id}', 'ProductController@getProduct');
 
 Route::post('/search', 'ProductController@findProduct');
 
+//Admin routes
+Route::group([
+    'prefix' => config('backpack.base.route_prefix', 'admin'),
+    'middleware' => ['admin'],
+    'namespace' => 'Admin'
+], function() {
+    
+    CRUD::resource('tag', 'TagCrudController');
+});

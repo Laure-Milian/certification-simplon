@@ -12,7 +12,7 @@ return [
     */
 
     // Project name. Shown in the breadcrumbs and a few other places.
-    'project_name' => 'Certification Simplon',
+    'project_name' => 'Certification_Simplon',
 
     // Menu logos
     'logo_lg'   => '<b>Back</b>pack',
