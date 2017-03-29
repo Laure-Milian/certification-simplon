@@ -29,4 +29,10 @@ class ProductController extends Controller
         return $category->name;
     }
 
+    public function getCategoryProducts($category_id){
+      $products = Product::where('category_id', $category_id)->get();
+    //   dd($products);
+      return view('products.category', ['products' => $products]);
+    }
+
 }

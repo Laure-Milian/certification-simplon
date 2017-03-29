@@ -26,3 +26,5 @@ Route::get('/', 'ProductController@getHome');
 Route::post('/search', 'ProductController@findProduct');
 
 Route::get('/{id}', 'ProductController@getProduct');
+
+Route::get('/category/{id}', 'ProductController@getCategoryProducts');
