@@ -14,11 +14,12 @@ class ProductController extends Controller
 
     public function getProduct($id) {
     	$product = Product::findOrFail($id);
-    	return view('show', ['product' => $product]);
+    	return view('products.details', ['product' => $product]);
     }
 
     public function findProduct(Request $request) {
     	$products = Product::where('name', 'like', $request->search . '%')->get();
     	return view('accueil', ['products' => $products]);
     }
+
 }
