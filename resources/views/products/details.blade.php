@@ -26,12 +26,13 @@
                     @endif
                 </div>
                 <div class="add-to-cart">
-                  <form action="/add/cart/{product_id}" method="post">
+                  <form action="/add/cart" method="post">
+                      <input type="hidden" name="product_id" value="{{$product->id}}">
                       <div class="form-group">
                           <label for="quantity">Quantité : </label>
                           <input type="number" class="quantity" name="quantity" value="1" min="0" max="20">
                       </div>
-                      <button class="btn btn-success" type="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter au panier</button>
+                      <button class="btn btn-success" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter au panier</button>
                   </form>
               </div>
 
