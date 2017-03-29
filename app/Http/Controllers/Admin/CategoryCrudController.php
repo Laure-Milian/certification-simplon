@@ -21,7 +21,7 @@ class CategoryCrudController extends CrudController
 		*/
         $this->crud->setModel("App\Models\Category");
         $this->crud->setRoute("admin/category");
-        $this->crud->setEntityNameStrings('category', 'categorys');
+        $this->crud->setEntityNameStrings('category', 'categories');
 
         /*
 		|--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ class CategoryCrudController extends CrudController
 		*/
 
         $this->crud->setFromDb();
-        $this->crud->setColumns(['name']);
+        $this->crud->setColumns(['name', 'description']);
         $this->crud->addField([
             'name' => 'name', 
             'label' => "Category name"
