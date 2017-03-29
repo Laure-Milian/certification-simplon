@@ -31,9 +31,12 @@ class ProductCrudController extends CrudController
 
         $this->crud->setFromDb();
         $this->crud->setColumns(['name', 'description', 'price', 'stock', 'category_id', 'picture']);
-        $this->crud->addField([
+        $this->crud->addFields([
             'name' => 'name', 
-            'label' => "Product name"
+            'description' => 'description',
+            'price' => 'price', 
+            'stock' => 'stock',
+            'category_id' => 'category_id'
             ]);;
 
         // ------ CRUD FIELDS

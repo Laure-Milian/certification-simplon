@@ -17,9 +17,9 @@ class Product extends Model
 
     protected $table = 'products';
     //protected $primaryKey = 'id';
-    public $timestamps = true;
+    public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'description', 'price', 'stock', 'category_id', 'picture'];
     // protected $hidden = ['id'];
     // protected $dates = [];
 
@@ -35,7 +35,7 @@ class Product extends Model
 	|--------------------------------------------------------------------------
 	*/
 	public function products() {
-		return $this->hasMany('App\Models\Product', 'product_product');
+		return $this->hasMany('App\Models\Product', 'product');
 	}
     /*
 	|--------------------------------------------------------------------------
