@@ -35,4 +35,5 @@ Route::group([
 ], function() {
     
     CRUD::resource('tag', 'TagCrudController');
+    CRUD::resource('category', 'CategoryCrudController');
 });
