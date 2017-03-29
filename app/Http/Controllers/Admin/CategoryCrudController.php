@@ -31,9 +31,9 @@ class CategoryCrudController extends CrudController
 
         $this->crud->setFromDb();
         $this->crud->setColumns(['name', 'description']);
-        $this->crud->addField([
+        $this->crud->addFields([
             'name' => 'name', 
-            'label' => "Category name"
+            'description' => 'description'
             ]);
 
         // ------ CRUD FIELDS
