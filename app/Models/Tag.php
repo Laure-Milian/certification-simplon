@@ -34,8 +34,8 @@ class Tag extends Model
 	| RELATIONS
 	|--------------------------------------------------------------------------
 	*/
-	public function articles() {
-		return $this->hasMany('App\Models\Article', 'article_tag');
+	public function products() {
+		return $this->hasMany('App\Models\Product', 'product_tag');
 	}
     /*
 	|--------------------------------------------------------------------------

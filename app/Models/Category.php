@@ -34,8 +34,8 @@ class Category extends Model
 	| RELATIONS
 	|--------------------------------------------------------------------------
 	*/
-	public function articles() {
-		return $this->hasMany('App\Models\Article', 'article_category');
+	public function products() {
+		return $this->hasMany('App\Models\Product', 'product_category');
 	}
     /*
 	|--------------------------------------------------------------------------
