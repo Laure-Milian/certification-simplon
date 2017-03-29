@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+	use App\Http\Controllers\CategoryController;
+	$categories = CategoryController::getCategories();
+ ?><!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -29,10 +32,9 @@
              <li class="dropdown">
                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Catégories</button>
                <ul class="dropdown-menu">
-                 <li><a class="dropdown-item" href="#ballerines">Ballerines</a></li>
-                 <li><a class="dropdown-item" href="#escarpins">Escarpins</a></li>
-                 <li><a class="dropdown-item" href="#bottes">Bottes</a></li>
-                 <li><a class="dropdown-item" href="#baskets">Baskets</a></li>
+				 @foreach ($categories as $category)
+                 	<li><a class="dropdown-item" href="/category/{{$category->id}}">{{$category->name}}</a></li>
+				 @endforeach
                </ul>
              </li>
            </ul>
