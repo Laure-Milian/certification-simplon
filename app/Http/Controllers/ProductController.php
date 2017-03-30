@@ -20,8 +20,8 @@ class ProductController extends Controller
     }
 
     public function findProduct(Request $request) {
-    	$products = Product::where('name', 'like', $request->search . '%')->get();
-    	return view('accueil', ['products' => $products]);
+    	$products = Product::where('name', 'like', '%' .$request->search . '%')->get();
+    	return view('products.search', ['products' => $products]);
     }
 
     public function getProductCategory($category_id){

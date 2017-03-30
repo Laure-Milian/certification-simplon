@@ -32,20 +32,21 @@
              <li class="dropdown">
                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Catégories</button>
                <ul class="dropdown-menu">
-				 @foreach ($categories as $category)
-                 	<li><a class="dropdown-item" href="/category/{{$category->id}}">{{$category->name}}</a></li>
-				 @endforeach
+				             @foreach ($categories as $category)
+                 	    <li><a class="dropdown-item" href="/category/{{$category->id}}">{{$category->name}}</a></li>
+				             @endforeach
                </ul>
              </li>
            </ul>
-            <!-- BARRE DE NAVIGATION : RECHERCHE PAR NOM DE PRODUIT -->
-            <form action="search" method="post">
-              <input type="hidden" name="_token" value="{{ csrf_token() }}">
-              <label for="input"></label>
-              <input id="input" type="text" class="form-control" placeholder="Rechercher un produit">
-              <input type="submit">
-            </form>
          </form>
+
+          <!-- BARRE DE NAVIGATION : RECHERCHE PAR NOM DE PRODUIT -->
+          <form action="/search" method="post">
+            <label for="input"></label>
+            <input id="input" type="text" class="form-control" name="search" placeholder="Rechercher un produit">
+            {{ csrf_field() }}
+            <button type="submit">Rechercher</button>
+          </form>
        </div>
      </div>
 
