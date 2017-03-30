@@ -33,7 +33,7 @@ Route::get('/cart_temp', function() {
 // AJOUTS LAURE POUR PARTIE ORDER
 Route::get('/order_validation', 'OrderController@index');
 
-Route::post('/validate_order', 'OrderController@checkInfos');
+Route::post('/validate_order', 'OrderController@sendOrder');
 
 // FIN AJOUTS LAURE POUR PARTIE ORDER
 
