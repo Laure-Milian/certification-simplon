@@ -4,13 +4,13 @@
 
 <div class="container">
 	<div>
-		<h1>Valider votre commande</h1>
+		<h1 class="order-h1">Dernière étape pour valider votre commande</h1>
 	</div>
-	<div>
-		<h2>Récapitulatif de votre panier</h2>
 		<div class="panel panel-default">
-			<table class="table">
-				<tr>
+		<div class="cart-div">
+		<h2 class="order_h2">Récapitulatif de votre panier</h2>
+			<table class="table table-bordered">
+				<tr class="active">
 					<th>Nom du produit</th>
 					<th>Quantité</th>
 					<th>Prix à l'unité</th>
@@ -25,8 +25,8 @@
 				</tr>
 				@endforeach
 				<tr>
-					<td colspan="3">Total de la commande : </td>
-					<td>{{$products_total_price / 100}} €</td>
+					<td colspan="3"><strong>Prix total des produits :</strong></td>
+					<td><strong>{{$products_total_price / 100}} €</strong></td>
 				</tr>
 			</table>
 		</div>
@@ -34,10 +34,9 @@
 </div>
 
 <div class="container">
-	<div>
-		<h2>Informations de livraison et paiement</h2>
 		<div class="panel panel-default">
 			<div>
+
 				@if ($known_address)
 				<div>
 					Votre nom :
@@ -66,7 +65,9 @@
 				<form action="/validate_order" method="post">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<div class="row">
+					<div class="order_infos_col">
 						<div class="col-md-8">
+						<h2 class="order_h2">Informations de livraison et paiement</h2>
 							<div class="form-group">
 								<label for="last_name">Nom :</label>
 								<input id="last_name" class="form-control" type="text" name="last_name">
@@ -101,19 +102,23 @@
 								<label for="delivery_comment">Commentaire pour le livreur :</label>
 								<textarea id="delivery_comment" class="form-control" name="delivery_comment"></textarea>
 							</div>
+							</div>
 						</div>
 						<div class="col-md-4">
-							<div>
-								Valeur de la commande : <span class="products_total_price">{{$products_total_price / 100}}</span> €
-							</div>
-							<div>
-								Livraison : <span class="delivery_cost"></span> €
-							</div>
-							<div>
-								Total : <span class="order_total_price"></span> €
+						<div class="order_paiement_col">
+							<div class="order_price_div alert alert-info">
+								<div>
+									Produits : <span class="products_total_price">{{$products_total_price / 100}}</span> €
+								</div>
+								<div>
+									Livraison : <span class="delivery_cost"></span> €
+								</div>
+								<div>
+									<strong>Total : <span class="order_total_price"></span> €</strong>
+								</div>
 							</div>
 							<div class="form-group">
-								<label for="shipping_method">Choix du mode de livraison :</label>
+								<label for="shipping_method">Mode de livraison :</label>
 								<select id="shipping_method" class="form-control" name="shipping_method">
 									<option value="shipping_method_1">Mode de livraison n°1 - Gratuit</option>
 									<option value="shipping_method_2">Mode de livraison n°2 - 0,50€</option>
@@ -121,22 +126,22 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<label for="paiement_method">Choix du mode de paiement :</label>
+								<label for="paiement_method">Mode de paiement :</label>
 								<select id="paiement_method" class="form-control" name="paiement_method">
 									<option>CB</option>
 									<option>Paypal</option>
 								</select>
 							</div>
 							<div>
-								<input class="btn btn-primary" type="submit" name="validate_order" value="Terminer la commande">
+								<input class="btn btn-success btn-lg btn-block" type="submit" name="validate_order" value="Paiement de la commande">
 							</div>
+						</div>
 						</div>
 					</form>
 
 					@endif
-				
+
 				</div>
 			</div>
-		</div>
 	</div>
 	@endsection
