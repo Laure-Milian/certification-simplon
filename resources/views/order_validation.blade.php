@@ -92,7 +92,7 @@
 							<div class="form-group">
 								<label for="country">Pays*</label>
 								<select id="country" class="form-control" name="country">
-									<option>France</option>
+									<option value="france">France</option>
 								</select>
 							</div>
 							<div class="form-group">

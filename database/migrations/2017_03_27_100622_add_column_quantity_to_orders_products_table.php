@@ -25,6 +25,8 @@ class AddColumnQuantityToOrdersProductsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('orders_products', function(Blueprint $table) {
+            $table->dropColumn('quantity_product');
+        });
     }
 }
