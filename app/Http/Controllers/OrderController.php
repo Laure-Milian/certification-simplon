@@ -30,9 +30,9 @@ class OrderController extends Controller
         $cart_products = $_SESSION['cart'];
         $current_user_id = Auth::user()->id;
         $total_price = $this->getTotalPrice($cart_products);
-        $last_order = $this->getLastOrder($current_user_id);
+        $last_order = $this->getLastOrder(9);
      	$known_address = ($last_order) ? true : false;
-     	return view('order_validation', ['cart_products' => $cart_products, 'total_price' => $total_price, 'known_address' => $known_address, 'last_order' => $last_order]);
+     	return view('order_validation', ['cart_products' => $cart_products, 'products_total_price' => $total_price, 'known_address' => $known_address, 'last_order' => $last_order]);
     }
 
     public function getTotalPrice($cart_products) {
@@ -50,4 +50,25 @@ class OrderController extends Controller
             ->first();
     }
 
+    public function checkInfos(Request $request) {
+        $this->saveOrder($request);
+    }
+
+    public function saveOrder($inputs) {
+        $order = new Order;
+        $order->total_price = 800;
+        $order->phone = $inputs->phone;
+        $order->address = $inputs->address;
+        $order->zip_code = $inputs->zip_code;
+        $order->city = $inputs->city;
+        $order->country = $inputs->country;
+        $order->comment = $inputs->delivery_comment;
+        $order->is_paid = false;
+        $order->is_sent = false;
+        $order->is_delivered = false;
+        $order->user_id = Auth::user()->id;
+        $order->save();
+
+        //$order->products = 
+    }
 }
