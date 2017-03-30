@@ -31,8 +31,8 @@ class ProductController extends Controller
 
     public function getCategoryProducts($category_id){
       $products = Product::where('category_id', $category_id)->get();
-    //   dd($products);
-      return view('products.category', ['products' => $products]);
+      $category = $this->getProductCategory($category_id);
+      return view('products.category', ['products' => $products, 'category' => $category]);
     }
 
 }

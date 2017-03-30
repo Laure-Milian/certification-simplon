@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container">
+
+    <h2><strong> {{ $category }} </strong></h2>
+
     <div class="row">
         @foreach ($products as $product)
             <div class="col-md-4 col-xs-11 product-card">
