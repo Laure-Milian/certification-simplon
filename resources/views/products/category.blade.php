@@ -16,7 +16,7 @@
                     </div>
                     <div class="caption caption-card">
                         <h3 class="category-product-title"><a href="/{{ $product->id }}">{{ $product->name }}</a></h3>
-                        
+
                         <div class="category-product-stock">
                             <h4 class="pull-left"><strong>{{ $product->price / 100 }} €</strong></h4>
                             @if ($product->stock === 0)
@@ -34,6 +34,10 @@
                 </div>
             </div>
         @endforeach
+
+        @if ($products->isEmpty())
+          <p>Aucun produit trouvé.</p>
+        @endif
     </div>
 </div>
 

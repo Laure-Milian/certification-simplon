@@ -34,6 +34,10 @@
                 </div>
             </div>
         @endforeach
+
+        @if ($products->isEmpty())
+            <p>Aucun produit trouvé.</p>
+        @endif
     </div>
 </div>
 
