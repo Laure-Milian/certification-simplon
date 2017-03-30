@@ -39,7 +39,12 @@ class ProductCrudController extends CrudController
             ['name' => 'category_id',
             'label' => "Category",
             'type' => 'select_from_array',
-            'options' => ['1' => 'Policier / Thriller', '2' => 'Science fiction', '3' => 'Aventure', '4' => 'Autobiographie', '5' => 'Epouvante / Horreur', '6' => 'Fantastique'],
+            'options' => [
+                '1' => 'Policier / Thriller', 
+                '2' => 'Science fiction', 
+                '3' => 'Aventure', '4' => 'Autobiographie', 
+                '5' => 'Epouvante / Horreur', 
+                '6' => 'Fantastique'],
             'allows_null' => false]
             ]);
 
