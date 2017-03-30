@@ -7,7 +7,7 @@
 
     <div class="row">
         @foreach ($products as $product)
-            <div class="col-md-4 col-xs-11 product-card">
+            <div class="col-md-4 col-xs-12 product-card">
                 <div class="card card-content">
                     <div class="image-wrapper-category">
                         <a href="/{{ $product->id }}">
@@ -36,7 +36,9 @@
         @endforeach
 
         @if ($products->isEmpty())
+          <div class="col-md-4 col-xs-12">
             <p>Aucun produit trouvé.</p>
+          </div>
         @endif
     </div>
 </div>
