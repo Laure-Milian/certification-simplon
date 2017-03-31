@@ -13,7 +13,7 @@
             <div class="details col-sm-7">
 
                 <h2 class="product-title"> {{ $product->name }} </h2>
-                <h3 class="product-category"><a href="/category/{{$product->category_id}}"> {{ $category }} </a></h3>
+                <h3 class="product-category"><a href="/category/{{$product->category_id}}"> {{ $category->name }} </a></h3>
                 <p class="product-description"> {{ $product->description }} </p>
                 <h4 class="price"><strong> Prix : <span> {{ $product->price / 100 }} </span>€</strong></h4>
                 <div class="product-stock">

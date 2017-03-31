@@ -3,7 +3,8 @@
 @section('content')
 <div class="container">
 
-    <h2><strong> {{ $category }} </strong></h2>
+    <h2><strong> {{ $category->name }} </strong></h2>
+    <div class="category-description"> {{ $category->description }} </div>
 
     <div class="row">
         @foreach ($products as $product)
