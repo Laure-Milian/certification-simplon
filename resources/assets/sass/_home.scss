@@ -1,3 +1,19 @@
+body{
+  max-width: 95vw;
+  padding:0;
+  margin:0;
+}
+
+h1 > a {
+  text-decoration: none;
+  color: grey;
+}
+
+h1 > a:hover {
+  color: grey;
+  text-decoration-line: none;
+}
+
 .site {
     padding: 1em;
     margin: 0;
