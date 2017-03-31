@@ -36,33 +36,9 @@
 <div class="container">
 		<div class="panel panel-default">
 			<div>
-
-				@if ($known_address)
-				<div>
-					Votre nom :
-				</div>
-				<div>
-					Adresse : {{$last_order->address}}
-				</div>
-				<div>
-					Code postal : {{$last_order->zip_code}}
-				</div>
-				<div>
-					Ville : {{$last_order->city}}
-				</div>
-				<div>
-					Pays : {{$last_order->country}}
-				</div>
-				<div>
-					Commentaire pour le livreur : {{$last_order->comment}}
-				</div>
-				<div>
-					<a href="/changeAddress">Modifier ces informations</a>
-				</div>
-
-				@else
-
 				<form action="/validate_order" method="post">
+					<input type="hidden" class="known_address" value="{{$known_address}}"></span>
+					<input type="hidden" class="last_order" value="{{$last_order}}"></span>
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<div class="row">
 					<div class="order_infos_col">
@@ -140,8 +116,6 @@
 						</div>
 						</div>
 					</form>
-
-					@endif
 
 				</div>
 			</div>

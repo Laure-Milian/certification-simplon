@@ -34,8 +34,8 @@ class OrderController extends Controller
         $current_user_id = Auth::user()->id;
         $total_price = $this->getTotalProductsPrice($cart_products);
         $this->_TEST = $total_price;
-        $last_order = $this->getLastOrder(9);
-        $known_address = ($last_order) ? true : false;
+        $last_order = $this->getLastOrder($current_user_id);
+        $known_address = ($last_order) ? "true" : "false";
         return view('order_validation', ['cart_products' => $cart_products, 'products_total_price' => $total_price, 'known_address' => $known_address, 'last_order' => $last_order]);
     }
 
@@ -85,10 +85,6 @@ class OrderController extends Controller
     public function saveOrder($inputs) {
         session_start();
         $cart_products = $_SESSION['cart'];
-
-        // $order = Order::create([
-        //     'first_name' => $inputs->first_name
-        // ]);
 
         $order = new Order;
         //INFOS DESTINATAIRE

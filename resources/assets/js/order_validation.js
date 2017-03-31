@@ -4,6 +4,7 @@
 		init: function() {
 			this.listeners();
 			this.setShippingCost("shipping_method_1");
+			this.getLastOrder();
 		},
 
 		listeners: function() {
@@ -31,6 +32,22 @@
 			let products_price = parseInt($(".products_total_price").text(), 10) * 100;
 			let order_total_price = (shipping_cost + products_price) / 100;
 			$(".order_total_price").text(order_total_price);
+		},
+
+		getLastOrder: function() {
+			$known_address = $(".known_address").val();
+			if ($known_address === "true") {
+				let last_order = JSON.parse($(".last_order").val());
+				$("#last_name").val(last_order.last_name);
+				$("#first_name").val(last_order.first_name);
+				$("#address").val(last_order.address);
+				$("#zip_code").val(last_order.zip_code);
+				$("#city").val(last_order.city);
+				$("#phone").val(last_order.phone);
+				$("#delivery_comment").val(last_order.comment);
+			} else {
+				return false;
+			}
 		}
 	
 	}
