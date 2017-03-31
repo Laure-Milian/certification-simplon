@@ -24,6 +24,10 @@ class AccountController extends Controller
 		return view('account', ['current_orders' => $current_orders, 'past_orders' => $past_orders]);
 	}
 
+	public function deleteConfirm() {
+		return view('delete');
+	}
+
 	public function deleteUser() {
 		$user_id = Auth::user()->id;
 		$orders = Order::where('user_id', $user_id)->get();
