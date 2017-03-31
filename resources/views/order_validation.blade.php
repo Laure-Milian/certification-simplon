@@ -37,9 +37,9 @@
 		<div class="panel panel-default">
 			<div>
 				<form action="/validate_order" method="post">
+					{{csrf_field()}}
 					<input type="hidden" class="known_address" value="{{$known_address}}"></span>
 					<input type="hidden" class="last_order" value="{{$last_order}}"></span>
-					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<div class="row">
 					<div class="order_infos_col">
 						<div class="col-md-8">
@@ -99,9 +99,9 @@
 							<div class="form-group">
 								<label for="shipping_method">Mode de livraison</label>
 								<select id="shipping_method" class="form-control" name="shipping_method">
-									<option value="shipping_method_1">Mode de livraison n°1 - Gratuit</option>
-									<option value="shipping_method_2">Mode de livraison n°2 - 0,50€</option>
-									<option value="shipping_method_3">Mode de livraison n°3 - 3,00€</option>
+									<option value="point-relais">Point Relais - Gratuit</option>
+									<option value="colissimo">Colissimo - 0,50€</option>
+									<option value="chronopost">Chronospost - 3,00€</option>
 								</select>
 							</div>
 							<div class="form-group">

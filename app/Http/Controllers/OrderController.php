@@ -69,16 +69,17 @@ class OrderController extends Controller
             ]);
         $this->reduceStock($request);
         $this->saveOrder($request);
+        return redirect('/account')->with('message', 'Votre commande a bien été enregistrée ! Vous pouvez suivre son avancée ici.');
     }
 
     public function getCosts($shipping_method) {
-        if ($shipping_method === "shipping_method_1") {
+        if ($shipping_method === "point-relais") {
             return 0;
         }
-        else if ($shipping_method === "shipping_method_2") {
+        else if ($shipping_method === "colissimo") {
             return 50;
         }
-        else if ($shipping_method === "shipping_method_3") {
+        else if ($shipping_method === "chronopost") {
             return 300;
         }
     }

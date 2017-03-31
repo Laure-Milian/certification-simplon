@@ -3,6 +3,9 @@
 @section('content')
 
 <div class="container">
+@if (session('message'))
+<div class="alert alert-success" role="alert">{{session('message')}}</div>
+@endif
 	<div>
 		<h1 class="account-h1"><strong>Votre compte</strong></h1>
 	</div>
@@ -53,7 +56,7 @@
 	</div>
 	<div class="panel panel-default">
 		<div class="account-div">
-			<h2 class="account-h2">Historique des commandes</h2>
+			<h2 class="account-h2">Commande(s) passée(s)</h2>
 			@if ($past_orders->isEmpty())
 			<h3 class="account-h3">Vous n'avez pas de commande passées</h3>
 			@else
