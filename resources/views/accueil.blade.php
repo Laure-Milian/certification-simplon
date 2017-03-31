@@ -1,9 +1,12 @@
 @extends('layouts.visitor')
 
 
+
 @section('content')
 
 
+
+@section('content')
 
   <!-- ***BLOC PHOTOS 1*** -->
 
