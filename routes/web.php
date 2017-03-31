@@ -36,6 +36,22 @@ Route::get('/', 'ProductController@getHome');
 
 Route::post('/search', 'ProductController@findProduct');
 
+
+// TEMPORAIRE A SUPPRIMER 
+Route::get('/cart_temp', function() {
+	return view('cart_temp');
+});
+
+// AJOUTS LAURE POUR PARTIE ORDER
+Route::get('/order_validation', 'OrderController@index');
+
+Route::post('/validate_order', 'OrderController@sendOrder');
+
+Route::get('/account', 'AccountController@index');
+// FIN AJOUTS LAURE POUR PARTIE ORDER
+
+
 Route::get('/category/{id}', 'ProductController@getCategoryProducts');
 
 Route::get('/{id}', 'ProductController@getProduct');
+
