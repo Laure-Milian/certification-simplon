@@ -40,7 +40,7 @@
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <label for="input"></label>
               <input id="input" type="text" class="form-control" placeholder="Rechercher un produit">
-              <input type="submit">
+              <input type="submit" value="Valider">
             </form>
          </form>
        </div>
