@@ -21,7 +21,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 // Gestion du panier
-Route::post('/add/cart', 'OrderController@getCart');
+Route::get('/add/cart', 'OrderController@getCart');
 
 
 
