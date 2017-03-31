@@ -48,6 +48,8 @@ Route::get('/order_validation', 'OrderController@index');
 Route::post('/validate_order', 'OrderController@sendOrder');
 
 Route::get('/account', 'AccountController@index');
+
+Route::get('/delete', 'AccountController@deleteUser');
 // FIN AJOUTS LAURE POUR PARTIE ORDER
 
 

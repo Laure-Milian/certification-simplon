@@ -84,7 +84,7 @@
 		</div>
 	</div>
 	<div>
-		<button>Supprimer mon compte</button>
+		<a href='/delete'>Supprimer mon compte</a>
 	</div>
 </div>
 

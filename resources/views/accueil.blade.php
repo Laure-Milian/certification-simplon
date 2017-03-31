@@ -2,6 +2,12 @@
 
 @section('content')
 
+<!-- AJOUT POUR AFFICHAGE MESSAGE APRES SUPPRESSION DE COMPTE -->
+  @if (session('message'))
+  <div class="alert alert-success" role="alert">{{session('message')}}</div>
+  @endif
+<!-- FIN AJOUT POUR AFFICHAGE MESSAGE APRES SUPPRESSION DE COMPTE -->
+
   <!-- ***BLOC PHOTOS 1*** -->
 
   <div class="contaicturesiner-fluid">
