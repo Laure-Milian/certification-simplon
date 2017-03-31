@@ -4,7 +4,7 @@
 
 <div class="container">
 	<div>
-		<h1 class="order-h1"><strong>Validez votre commande</strong></h1>
+		<h1 class="order-h1"><strong>Finalisez votre commande</strong></h1>
 	</div>
 		<div class="panel panel-default">
 		<div class="cart-div">

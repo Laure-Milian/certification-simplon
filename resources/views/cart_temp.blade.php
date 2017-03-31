@@ -18,14 +18,14 @@ $_SESSION["cart"] = [
 @if (Route::has('login'))
 	@if (Auth::check())
 	<div>
-		<a href="/order_validation">Finaliser ma commande</a>
+		<a class="btn btn-success btn-lg btn-block" href="/order_validation">Finaliser ma commande</a>
 	</div>
 	@else
 	<div>
-		<a href="/login">J'ai déjà un compte</a>
+		<a class="btn btn-success btn-lg btn-block" href="/login">J'ai déjà un compte</a>
 	</div>
 	<div>
-		<a href="/register">Je crée un compte</a>
+		<a class="btn btn-success btn-lg btn-block" href="/register">Je crée un compte</a>
 	</div>
 	@endif
 @endif
