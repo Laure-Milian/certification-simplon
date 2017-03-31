@@ -44,7 +44,7 @@
 					<div class="order_infos_col">
 						<div class="col-md-8">
 						<h2 class="order_h2">Informations de livraison et paiement</h2>
-						<h5 class="order_h5">Tous les champs marqués d'un * sont obligatoire</h5>
+						<h5 class="order_h5">Les champs marqués d'un * sont obligatoire</h5>
 							<div class="form-group">
 								<label for="last_name">Nom*</label>
 								<input required id="last_name" class="form-control" type="text" name="last_name">
@@ -70,6 +70,7 @@
 								<select id="country" class="form-control" name="country">
 									<option value="france">France</option>
 								</select>
+								<small class="form-text text-muted">Pour l'instant, la livraison n'est disponible que pour la France</small>
 							</div>
 							<div class="form-group">
 								<label for="phone">Numéro de téléphone*</label>

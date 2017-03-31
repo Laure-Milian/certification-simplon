@@ -33,7 +33,6 @@ class OrderController extends Controller
         $cart_products = $_SESSION['cart'];
         $current_user_id = Auth::user()->id;
         $total_price = $this->getTotalProductsPrice($cart_products);
-        $this->_TEST = $total_price;
         $last_order = $this->getLastOrder($current_user_id);
         $known_address = ($last_order) ? "true" : "false";
         return view('order_validation', ['cart_products' => $cart_products, 'products_total_price' => $total_price, 'known_address' => $known_address, 'last_order' => $last_order]);
