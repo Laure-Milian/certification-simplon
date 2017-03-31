@@ -25,8 +25,15 @@ Route::post('/add/cart', 'OrderController@getCart');
 
 
 
-Route::post('/search', 'ProductController@findProduct');
+
 
 // Ajouts Laure :
 Route::get('/', 'ProductController@getHome');
+
+
+Route::post('/search', 'ProductController@findProduct');
+
 Route::get('/{id}', 'ProductController@getProduct');
+
+Route::get('/category/{id}', 'ProductController@getCategoryProducts');
+

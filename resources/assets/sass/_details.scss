@@ -1,0 +1,36 @@
+.product-details {
+    padding: 1.5em;
+}
+
+.image-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+/* DETAILS */
+
+.product-details {
+    max-width: 100vw;
+}
+
+.product-title {
+    font-weight: bold;
+}
+
+.product-category > a {
+    text-decoration: none;
+    font-size: 0.8em;
+}
+
+.product-description {
+    text-align: justify;
+}
+
+.product-stock {
+  margin: 0.8em 0;
+  font-size: 1.2em;
+}
+
+.quantity {
+  text-align: center;
+}

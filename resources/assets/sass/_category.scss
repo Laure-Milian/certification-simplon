@@ -1,0 +1,30 @@
+.product-card {
+    margin: 1em 0;
+}
+
+.card-content{
+    padding: 1em;
+}
+
+.caption-card {
+    padding: 0 1em;
+}
+
+.category-product-title{
+    text-align: center;
+}
+
+.category-product-title > a {
+    text-decoration: none;
+    color: #636b6f;
+}
+
+.category-product-title > a:hover {
+    color: black;
+}
+
+.category-product-stock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
