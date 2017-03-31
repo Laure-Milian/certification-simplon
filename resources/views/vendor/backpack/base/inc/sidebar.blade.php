@@ -25,7 +25,6 @@
               <ul class="treeview-menu">
                   <li><a href="{{ url(config('backpack.base.route_prefix').'/product') }}"><i class="fa fa-newspaper-o"></i> <span>Products</span></a></li>
                   <li><a href="{{ url(config('backpack.base.route_prefix').'/category') }}"><i class="fa fa-list"></i> <span>Categories</span></a></li>
-                  <li><a href="{{ url(config('backpack.base.route_prefix').'/tag') }}"><i class="fa fa-tag"></i> <span>Tags</span></a></li>
               </ul>
           </li>
           <li class="treeview">

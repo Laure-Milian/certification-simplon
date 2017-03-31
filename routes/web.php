@@ -34,7 +34,6 @@ Route::group([
     'namespace' => 'Admin'
 ], function() {
     
-    CRUD::resource('tag', 'TagCrudController');
     CRUD::resource('category', 'CategoryCrudController');
     CRUD::resource('product', 'ProductCrudController');
     CRUD::resource('order', 'OrderCrudController');
