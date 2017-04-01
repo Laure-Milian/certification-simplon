@@ -42,11 +42,18 @@ class ProductCrudController extends CrudController
             'options' => [
                 '1' => 'Policier / Thriller', 
                 '2' => 'Science fiction', 
-                '3' => 'Aventure', '4' => 'Autobiographie', 
+                '3' => 'Aventure', 
+                '4' => 'Autobiographie', 
                 '5' => 'Epouvante / Horreur', 
                 '6' => 'Fantastique'],
-            'allows_null' => false]
-            ]);
+            'allows_null' => false],
+            [ 
+            'name' => 'picture',
+            'label' => 'Picture',
+            'type' => 'browse',
+            'readonly' => true
+            ],
+        ]);
 
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
@@ -113,21 +120,21 @@ class ProductCrudController extends CrudController
         // $this->crud->limit();
     }
 
-	public function store(StoreRequest $request)
-	{
+    public function store(StoreRequest $request)
+    {
 		// your additional operations before save here
         $redirect_location = parent::storeCrud();
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
-	}
+    }
 
-	public function update(UpdateRequest $request)
-	{
+    public function update(UpdateRequest $request)
+    {
 		// your additional operations before save here
         $redirect_location = parent::updateCrud();
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
-	}
+    }
 }
