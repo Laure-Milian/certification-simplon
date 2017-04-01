@@ -17,7 +17,8 @@
 			@else
 			<table class="table table-bordered">
 				<tr class="active">
-					<th>N° de commande</th>
+					<th>N°</th>
+					<th>Date d'enregistrement</th>
 					<th>Nom du destinataire</th>
 					<th>Adresse de livraison</th>
 					<th>Méthode de livraison</th>
@@ -29,6 +30,7 @@
 				@foreach ($current_orders as $current_order)
 				<tr>
 					<td>{{$current_order->id}}</td>
+					<td>{{$current_order->created_at}}</td>
 					<td>{{$current_order->last_name}} {{$current_order->first_name}}</td>
 					<td>{{$current_order->address}}</td>
 					<td>{{$current_order->shipping_method}}</td>
@@ -62,7 +64,8 @@
 			@else
 			<table class="table table-bordered">
 				<tr class="active">
-					<th>N° de commande</th>
+					<th>N°</th>
+					<th>Date d'enregistrement</th>
 					<th>Nom du destinataire</th>
 					<th>Adresse de livraison</th>
 					<th>Méthode de livraison</th>
@@ -72,6 +75,7 @@
 				@foreach ($past_orders as $past_order)
 				<tr>
 					<td>{{$past_order->id}}</td>
+					<td>{{$past_order->created_at}}</td>
 					<td>{{$past_order->last_name}} {{$past_order->first_name}}</td>
 					<td>{{$past_order->address}}</td>
 					<td>{{$past_order->shipping_method}}</td>
