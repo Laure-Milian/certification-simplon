@@ -34,7 +34,6 @@
                   <li><a href="{{ url(config('backpack.base.route_prefix').'/order') }}"><i class="fa fa-list"></i> <span>Past</span></a></li>
               </ul>
           </li>
-          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/elfinder') }}"><i class="fa fa-files-o"></i> <span>Picture management</span></a></li>
   
           <!-- ======================================= -->
           <li class="header">{{ trans('backpack::base.user') }}</li>
