@@ -122,11 +122,6 @@ class OrderCrudController extends CrudController
         $this->crud->setRoute("admin/order");
         $this->crud->setEntityNameStrings('order', 'orders_product');
 
-        $this->crud->setFromDb();
-        $this->crud->addField([
-            'name' => 'name']); 
-
-
         $this->crud->hasAccessOrFail('details_row');
 
         //$this->data['entry'] = $this->crud->getEntry($id);
