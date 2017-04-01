@@ -20,14 +20,15 @@ Auth::routes();
 
 //Admin routes
 Route::group([
-  'prefix' => config('backpack.base.route_prefix', 'admin'),
-  'middleware' => ['admin'],
-  'namespace' => 'Admin'
+  'prefix' => 'admin',
+  'middleware' =>  ['auth', 'admin'],
 ], function() {
 
-  CRUD::resource('category', 'CategoryCrudController');
-  CRUD::resource('product', 'ProductCrudController');
-  CRUD::resource('order', 'OrderCrudController');
+  CRUD::resource('category', 'Admin\CategoryCrudController');
+  CRUD::resource('product', 'Admin\ProductCrudController');
+  CRUD::resource('order', 'Admin\OrderCrudController');
+  CRUD::resource('user', 'Admin\UserCrudController');
+
 });
 
 Route::get('/home', 'HomeController@index');

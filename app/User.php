@@ -28,6 +28,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+     protected $casts = [
+        'admin' => 'boolean',
+    ];
+
         /**
      * Send the password reset notification.
      *
@@ -38,4 +42,9 @@ class User extends Authenticatable
     {
         $this->notify(new ResetPasswordNotification($token));
     }
+
+    public function isAdmin()
+{
+    return $this->admin;
+}
 }
