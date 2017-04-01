@@ -54,6 +54,14 @@ class ProductCrudController extends CrudController
             'readonly' => true
             ],
         ]);
+        $this->crud->addFilter([
+          'name' => 'stock',
+          'type' => 'dropdown',
+          'label'=> 'Status'], 
+          ['0' => 'Not available'], 
+          function($value) { 
+            $this->crud->addClause('where', 'stock', $value);
+        });
 
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
