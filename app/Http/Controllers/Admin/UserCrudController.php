@@ -36,7 +36,14 @@ class UserCrudController extends CrudController
             'email' => 'email',
             'created_at' => 'created_at',
             'updated_at' => 'updated_at',
-            'admin' => 'admin'
+            [
+            'name'        => 'admin',
+            'label'       => 'Admin status',
+            'type'        => 'radio',
+            'options'     => [
+                0 => "False",
+                1 => "True"],
+            ]
             ]);
 
         // ------ CRUD FIELDS
@@ -104,21 +111,21 @@ class UserCrudController extends CrudController
         // $this->crud->limit();
     }
 
-	public function store(StoreRequest $request)
-	{
+    public function store(StoreRequest $request)
+    {
 		// your additional operations before save here
         $redirect_location = parent::storeCrud();
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
-	}
+    }
 
-	public function update(UpdateRequest $request)
-	{
+    public function update(UpdateRequest $request)
+    {
 		// your additional operations before save here
         $redirect_location = parent::updateCrud();
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
-	}
+    }
 }
