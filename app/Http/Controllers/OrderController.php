@@ -32,28 +32,15 @@ class OrderController extends Controller
         session_start();
         $cart_products = $_SESSION['cart'];
         $current_user_id = Auth::user()->id;
-        $total_price = $this->getTotalProductsPrice($cart_products);
-        $last_order = $this->getLastOrder($current_user_id);
+        $total_price = Order::getTotalProductsPrice($cart_products);
+        $last_order = Order::getLastOrder($current_user_id);
         $known_address = ($last_order) ? "true" : "false";
         return view('order_validation', ['cart_products' => $cart_products, 'products_total_price' => $total_price, 'known_address' => $known_address, 'last_order' => $last_order]);
     }
 
-    public function getTotalProductsPrice($cart_products) {
-        $total_price = 0;
-        foreach ($cart_products as $product) {
-            $price_quantity = $product["price"] * $product["quantity"];
-            $total_price = $total_price + $price_quantity;
-        }
-        return $total_price;
-    }
-
-    public function getLastOrder($user_id) {
-        return Order::where('user_id', $user_id)
-        ->orderBy('created_at', 'desc')
-        ->first();
-    }
-
-    public function sendOrder(Request $request) {
+    public function createOrder(Request $request) {
+        try {
+        session_start();
         $this->validate($request, [
             'first_name' => 'string',
             'last_name' => 'string',
@@ -66,24 +53,28 @@ class OrderController extends Controller
             'shipping_method' => 'string',
             'paiement_method' => 'string'
             ]);
+        $this->reduceStock($request);
         $this->saveOrder($request);
+        return redirect('/account')->with('message', 'Votre commande a bien été enregistrée ! Vous pouvez suivre son avancée ici.');
+        } catch(\Exception $e) {
+            $request->session()->flash('fail', $e->getMessage());
+            return back();
+        }
     }
 
-    public function getCosts($shipping_method) {
-        if ($shipping_method === "shipping_method_1") {
-            return 0;
-        }
-        else if ($shipping_method === "shipping_method_2") {
-            return 50;
-        }
-        else if ($shipping_method === "shipping_method_3") {
-            return 300;
+    public function reduceStock($request) {
+        $cart_products = $_SESSION['cart'];
+        foreach ($cart_products as $product) {
+            $product_in_db = Product::findOrFail($product["product_id"]);
+            $product_in_db->stock = $product_in_db->stock - $product["quantity"];
+            $product_in_db->save();
         }
     }
 
     public function saveOrder($inputs) {
-        session_start();
         $cart_products = $_SESSION['cart'];
+        $products_total_price = Order::getTotalProductsPrice($cart_products);
+        $delivery_cost = Order::getDeliveryCost($inputs->shipping_method);
 
         $order = new Order;
         //INFOS DESTINATAIRE
@@ -96,12 +87,12 @@ class OrderController extends Controller
         $order->phone = $inputs->phone;
         $order->comment = $inputs->delivery_comment;
         // INFOS PAIEMENT ET LIVRAISON
-        $order->products_total_price = $this->getTotalProductsPrice($cart_products);
-        $order->shipping_cost = $this->getCosts($inputs->shipping_method);
-        $order->total_price = $this->getTotalProductsPrice($cart_products) + $this->getCosts($inputs->shipping_method);
+        $order->products_total_price = $products_total_price;
+        $order->shipping_cost = $delivery_cost;
+        $order->total_price = $products_total_price + $delivery_cost;
         $order->shipping_method = $inputs->shipping_method;
         $order->paiement_method = $inputs->paiement_method;
-        $order->is_paid = false;
+        $order->is_paid = true;
         $order->is_sent = false;
         $order->is_delivered = false;
         $order->user_id = Auth::user()->id;

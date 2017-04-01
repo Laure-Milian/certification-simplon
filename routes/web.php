@@ -17,13 +17,18 @@ Route::get('/', function () {
 
 // Générés par Laravel pour l'authentication :
 Auth::routes();
+Route::get('logout', function(){
+	auth()->logout();
+	return redirect()->to('/');
+});
 
 //Admin routes
 Route::group([
   'prefix' => 'admin',
-  'middleware' =>  ['auth', 'admin'],
+  'middleware' =>  ['admin'],
 ], function() {
 
+  Route::get('/', function(){return '';}); //Ne pas changer cette route
   CRUD::resource('category', 'Admin\CategoryCrudController');
   CRUD::resource('product', 'Admin\ProductCrudController');
   CRUD::resource('order', 'Admin\OrderCrudController');
@@ -47,9 +52,13 @@ Route::get('/cart_temp', function() {
 // AJOUTS LAURE POUR PARTIE ORDER
 Route::get('/order_validation', 'OrderController@index');
 
-Route::post('/validate_order', 'OrderController@sendOrder');
+Route::post('/validate_order', 'OrderController@createOrder');
 
 Route::get('/account', 'AccountController@index');
+
+Route::get('/delete', 'AccountController@deleteConfirm');
+
+Route::get('/delete/confirm', 'AccountController@deleteUser');
 // FIN AJOUTS LAURE POUR PARTIE ORDER
 
 
