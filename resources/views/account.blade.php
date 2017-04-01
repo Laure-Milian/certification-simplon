@@ -3,9 +3,9 @@
 @section('content')
 
 <div class="container">
-@if (session('message'))
-<div class="alert alert-success" role="alert">{{session('message')}}</div>
-@endif
+	@if (session('message'))
+	<div class="alert alert-success" role="alert">{{session('message')}}</div>
+	@endif
 	<div>
 		<h1 class="account-h1"><strong>Votre compte</strong></h1>
 	</div>

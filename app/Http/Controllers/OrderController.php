@@ -54,6 +54,7 @@ class OrderController extends Controller
     }
 
     public function sendOrder(Request $request) {
+        try {
         session_start();
         $this->validate($request, [
             'first_name' => 'string',
@@ -70,6 +71,10 @@ class OrderController extends Controller
         $this->reduceStock($request);
         $this->saveOrder($request);
         return redirect('/account')->with('message', 'Votre commande a bien été enregistrée ! Vous pouvez suivre son avancée ici.');
+        } catch(\Exception $e) {
+            $request->session()->flash('fail', $e->getMessage());
+            return back();
+        }
     }
 
     public function getCosts($shipping_method) {

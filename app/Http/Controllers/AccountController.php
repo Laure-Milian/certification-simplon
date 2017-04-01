@@ -15,10 +15,12 @@ class AccountController extends Controller
 
 		$current_orders = Order::where('user_id', $user_id)
 		->where('is_delivered', false)
+		->orderBy('created_at', 'desc')
 		->get();
 
 		$past_orders = Order::where('user_id', $user_id)
 		->where('is_delivered', true)
+		->orderBy('created_at', 'desc')
 		->get();
 		
 		return view('account', ['current_orders' => $current_orders, 'past_orders' => $past_orders]);

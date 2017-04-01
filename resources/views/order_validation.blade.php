@@ -2,7 +2,13 @@
 
 @section('content')
 
+
 <div class="container">
+	@if (Session::has('fail'))
+	<div class="alert alert-danger" role="alert">
+		Une erreur a été détectée, votre commande n'a pas été enregistrée. Veuillez contacter le service client (contact@loutre-pirate.com) en précisant ce message d'erreur : {{Session::get('fail')}}
+	</div>
+	@endif
 	<div>
 		<h1 class="order-h1"><strong>Finalisez votre commande</strong></h1>
 	</div>
