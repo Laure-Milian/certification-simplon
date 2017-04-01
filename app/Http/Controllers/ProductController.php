@@ -26,7 +26,7 @@ class ProductController extends Controller
 
     public function getProductCategory($category_id){
         $category = Category::where('id', $category_id)->first();
-        return $category->name;
+        return $category;
     }
 
     public function getCategoryProducts($category_id){
