@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\OrderRequest as StoreRequest;
-use App\Http\Requests\OrderRequest as UpdateRequest;
+use App\Http\Requests\OrderProductRequest as StoreRequest;
+use App\Http\Requests\OrderProductRequest as UpdateRequest;
 
-class OrderCrudController extends CrudController
+class OrderProductCrudController extends CrudController
 {
 
     public function setUp()
@@ -19,9 +19,9 @@ class OrderCrudController extends CrudController
 		| BASIC CRUD INFORMATION
 		|--------------------------------------------------------------------------
 		*/
-        $this->crud->setModel("App\Models\Order");
-        $this->crud->setRoute("admin/order");
-        $this->crud->setEntityNameStrings('order', 'orders');
+        $this->crud->setModel("App\Models\OrderProduct");
+        $this->crud->setRoute("admin/orderProduct");
+        $this->crud->setEntityNameStrings('orderProduct', 'orders_products');
 
         /*
 		|--------------------------------------------------------------------------
@@ -30,26 +30,7 @@ class OrderCrudController extends CrudController
 		*/
 
         $this->crud->setFromDb();
-        $this->crud->setColumns(['name', 'user_id', 'total_price', 'phone', 'address', 'zip_code', 'city', 'country', 'comment', 'is_paid', 'is_sent', 'is_delivered', 'paiement_date', 'sending_date', 'delivery_date', 'created_at', 'updated_at']);
-        $this->crud->addFields([
-            'name' => 'name',
-            'user_id' => 'user_id', 
-            'total_price' => 'total_price', 
-            'phone' => 'phone', 
-            'address' => 'address', 
-            'zip_code' => 'zip_code', 
-            'city' => 'city', 
-            'country' => 'country', 
-            'comment' => 'comment', 
-            'is_paid' => 'is_paid', 
-            'is_sent' => 'is_sent', 
-            'is_delivered' => 'is_delivered', 
-            'paiement_date' => 'paiement_date', 
-            'sending_date' => 'sending_date', 
-            'delivery_date' => 'delivery_date', 
-            'created_at' => 'created_at', 
-            'updated_at' => 'updated_at'
-            ]);
+
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
@@ -81,9 +62,8 @@ class OrderCrudController extends CrudController
         // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('reorder');
 
         // ------ CRUD DETAILS ROW
-        $this->crud->enableDetailsRow();
-        // NOTE: you also need to do allow access to the right users: 
-        $this->crud->allowAccess('details_row');
+        // $this->crud->enableDetailsRow();
+        // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('details_row');
         // NOTE: you also need to do overwrite the showDetailsRow($id) method in your EntityCrudController to show whatever you'd like in the details row OR overwrite the views/backpack/crud/details_row.blade.php
 
         // ------ REVISIONS
@@ -114,28 +94,6 @@ class OrderCrudController extends CrudController
         // $this->crud->orderBy();
         // $this->crud->groupBy();
         // $this->crud->limit();
-    }
-
-    public function showDetailsRow($id) 
-    {
-        $this->crud->setModel("App\Models\Order");
-        $this->crud->setRoute("admin/order");
-        $this->crud->setEntityNameStrings('order', 'orders_product');
-
-        $this->crud->setFromDb();
-        $this->crud->addField([
-            'name' => 'name']); 
-
-
-        $this->crud->hasAccessOrFail('details_row');
-
-        //$this->data['entry'] = $this->crud->getEntry($id);
-        $this->data['crud'] = $this->crud;
-        // $this->data['fields'] = $this->crud->getUpdateFields($id);
-        //$this->data['title'] = trans('backpack::crud.edit') . ' ' . $this->crud->entity_name;
-
-        // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
-        return view('crud::details_row', $this->data);
     }
 
 	public function store(StoreRequest $request)

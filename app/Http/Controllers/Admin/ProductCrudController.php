@@ -38,22 +38,26 @@ class ProductCrudController extends CrudController
             'stock' => 'stock',
             ['name' => 'category_id',
             'label' => "Category",
-            'type' => 'select_from_array',
-            'options' => [
-                '1' => 'Policier / Thriller', 
-                '2' => 'Science fiction', 
-                '3' => 'Aventure', 
-                '4' => 'Autobiographie', 
-                '5' => 'Epouvante / Horreur', 
-                '6' => 'Fantastique'],
+            'type' => 'model_function',
+            // 'options' => [
+            //     '1' => 'Policier / Thriller', 
+            //     '2' => 'Science fiction', 
+            //     '3' => 'Aventure', 
+            //     '4' => 'Autobiographie', 
+            //     '5' => 'Epouvante / Horreur', 
+            //     '6' => 'Fantastique'],
+            [
+             'function_name' => 'autoUpdateCategory', // the method in your Model
+            ],
             'allows_null' => false],
             [ 
             'name' => 'picture',
             'label' => 'Picture',
             'type' => 'browse',
             'readonly' => true
-            ],
+            ]
         ]);
+
         $this->crud->addFilter([
           'name' => 'stock',
           'type' => 'dropdown',
@@ -94,8 +98,9 @@ class ProductCrudController extends CrudController
         // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('reorder');
 
         // ------ CRUD DETAILS ROW
-        // $this->crud->enableDetailsRow();
-        // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('details_row');
+        //$this->crud->enableDetailsRow();
+        // NOTE: you also need to do allow access to the right users: 
+        // $this->crud->allowAccess('details_row');
         // NOTE: you also need to do overwrite the showDetailsRow($id) method in your EntityCrudController to show whatever you'd like in the details row OR overwrite the views/backpack/crud/details_row.blade.php
 
         // ------ REVISIONS

@@ -28,6 +28,7 @@ Route::group([
   CRUD::resource('product', 'Admin\ProductCrudController');
   CRUD::resource('order', 'Admin\OrderCrudController');
   CRUD::resource('user', 'Admin\UserCrudController');
+  CRUD::resource('orderProduct', 'Admin\OrderProductCrudController');
 
 });
 
