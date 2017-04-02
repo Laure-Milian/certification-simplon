@@ -65,6 +65,8 @@ Route::get('/delete/confirm', 'AccountController@deleteUser');
 // ROUTES POUR CART
 Route::get('/cart', 'CartController@index');
 
+Route::post('/add/cart', 'CartController@addToCart');
+
 // FIN ROUTES POUR CART
 
 Route::get('/category/{id}', 'ProductController@getCategoryProducts');

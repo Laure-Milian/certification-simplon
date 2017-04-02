@@ -10,8 +10,12 @@ class CartController extends Controller
     	return view('cart');
     }
 
-    public function addToCart() {
-
+    public function addToCart(Request $request) {
+    	$product_id = $request->product_id;
+		$name = $request->name;
+		$price = $request->price;
+		$quantity = $request->quantity;
+		dd($quantity . $name . $price . $product_id);
     }
 
     public function deleteFromCart() {
