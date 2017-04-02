@@ -13,7 +13,8 @@
                     <option value="{{ $author->author }}">{{ $author->author }}</option>
                     @endforeach
                 </select>
-                <select class="form-control" name="release_year">
+                <select class="form-control" name="released_year">
+                    <option value="">Année de Parution</option>
                     @foreach ($released_years as $released_year)
                     <option value="{{ $released_year->released_year }}">{{ $released_year->released_year }}</option>
                     @endforeach
