@@ -62,6 +62,11 @@ Route::get('/delete/confirm', 'AccountController@deleteUser');
 // FIN AJOUTS LAURE POUR PARTIE ORDER
 
 
+// ROUTES POUR CART
+Route::get('/cart', 'CartController@index');
+
+// FIN ROUTES POUR CART
+
 Route::get('/category/{id}', 'ProductController@getCategoryProducts');
 
 Route::get('/{id}', 'ProductController@getProduct');
