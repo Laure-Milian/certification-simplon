@@ -3,6 +3,30 @@
 @section('content')
 <div class="container">
 
+    <div class="filters">
+        <form class="form-inline" action="index.html" method="post">
+
+            <select class="form-control" name="author">
+                <option value="">Auteur</option>
+                @foreach ($authors as $author)
+                    <option value="{{ $author->author }}">{{ $author->author }}</option>
+                @endforeach
+            </select>
+            <select class="form-control" name="release_year">
+                  @foreach ($released_years as $released_year)
+                      <option value="{{ $released_year->released_year }}">{{ $released_year->released_year }}</option>
+                  @endforeach
+            </select>
+            <select class="form-control" name="stock">
+                <option value="all">Stocks</option>
+                <option value="all">Tous produits</option>
+                <option value="stock"> Seulement produits en stock</option>
+            </select>
+
+            <button type="submit" class="btn" name="button">Filtrer les produits</button>
+        </form>
+    </div>
+
     <h2><strong> {{ $category->name }} </strong></h2>
     <div class="category-description"> {{ $category->description }} </div>
 

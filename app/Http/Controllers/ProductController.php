@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Product;
 use App\Category;
 
@@ -32,7 +33,20 @@ class ProductController extends Controller
     public function getCategoryProducts($category_id){
       $products = Product::where('category_id', $category_id)->get();
       $category = $this->getProductCategory($category_id);
-      return view('products.category', ['products' => $products, 'category' => $category]);
+
+      $authors = $this->getAuthorFilter($category_id);
+      $released_years = $this->getReleasedYearFilter($category_id);
+      return view('products.category', compact(['products', 'category', 'authors', 'released_years']));
+    }
+
+    public function getAuthorFilter($category_id){
+        $authors = DB::table('products')->where('category_id', $category_id)->select('author')->distinct()->get();
+        return $authors;
+    }
+
+    public function getReleasedYearFilter($category_id){
+        $released_years = DB::table('products')->where('category_id', $category_id)->select('released_year')->distinct()->get();
+        return $released_years;
     }
 
 }
