@@ -13,6 +13,11 @@ $_SESSION["cart"] = [
 ];
 ?>
 
+<div>
+	Votre panier :
+	
+</div>
+
 <!-- CODE A RECUPERER LAURE -->
 
 @if (Route::has('login'))
