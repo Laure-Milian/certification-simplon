@@ -27,6 +27,11 @@
                 </div>
                 <div class="add-to-cart">
                   <form action="/add/cart" method="post">
+                      <!-- Ajouts pour cart ici -->
+                      {{csrf_field()}}
+                      <input type="hidden" name="name" value="{{$product->name}}">
+                      <input type="hidden" name="price" value="{{$product->price}}">
+                      <!-- Fin ajouts pour cart -->
                       <input type="hidden" name="product_id" value="{{$product->id}}">
                       <div class="form-group">
                           <label for="quantity">Quantité : </label>
