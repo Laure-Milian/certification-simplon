@@ -6,6 +6,7 @@
     <div class="row">
         <div class="filters col-md-12 col-xs-12">
             <form class="form-inline" action="index.html" method="post">
+                <input type="hidden" name="category_id" value="{{$category->id}}">
 
                 <select class="form-control" name="author">
                     <option value="">Auteur</option>
