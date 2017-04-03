@@ -49,4 +49,62 @@ class ProductController extends Controller
         return $released_years;
     }
 
+    public function postFilterCategory(Request $request) { // A terminer
+        $category_id = $request->category_id;
+        $author = $request->author;
+        $released_year = $request->released_year;
+        $stock = $request->stock ? true : false; // False === tous produits
+
+
+        if($author && $released_year && !$stock){
+          $products = Product::where('category_id', $category_id)
+          ->where('author', $author)
+          ->where('released_year', $released_year)
+          ->get();
+        }
+        else if ($author && !$stock){
+            $products = Product::where('category_id', $category_id)
+            ->where('author', $author)
+            ->get();
+        }
+        else if ($released_year && !$stock){
+            $products = Product::where('category_id', $category_id)
+            ->where('released_year', $released_year)
+            ->get();
+        }
+        else if ($stock && $author && $released_year){
+            $products = Product::where('category_id', $category_id)
+            ->where('author', $author)
+            ->where('released_year', $released_year)
+            ->where('stock', '>', 0)
+            ->get();
+        }
+        else if($stock && $author){
+            $products = Product::where('category_id', $category_id)
+            ->where('author', $author)
+            ->where('stock', '>', 0)
+            ->get();
+        }
+        else if($stock && $released_year){
+            $products = Product::where('category_id', $category_id)
+            ->where('released_year', $released_year)
+            ->where('stock', '>', 0)
+            ->get();
+        }
+        else if($stock){
+            $products = Product::where('category_id', $category_id)
+            ->where('stock', '>', 0)
+            ->get();
+        }
+        else {
+            $products = Product::where('category_id', $category_id)
+            ->get();
+        }
+
+        $category = $this->getProductCategory($category_id);
+        $authors = $this->getAuthorFilter($category_id);
+        $released_years = $this->getReleasedYearFilter($category_id);
+        return view('products.category', compact(['products', 'category', 'authors', 'released_years']));
+    }
+
 }

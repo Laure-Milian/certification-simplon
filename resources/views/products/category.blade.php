@@ -5,7 +5,7 @@
 
     <div class="row">
         <div class="filters col-md-12 col-xs-12">
-            <form class="form-inline" action="index.html" method="post">
+            <form class="form-inline" action="/filter" method="post">
                 <input type="hidden" name="category_id" value="{{$category->id}}">
 
                 <select class="form-control" name="author">
@@ -21,11 +21,11 @@
                     @endforeach
                 </select>
                 <select class="form-control" name="stock">
-                    <option value="all">Stocks</option>
-                    <option value="all">Tous produits</option>
+                    <option value="">Stocks</option>
+                    <option value="">Tous produits</option>
                     <option value="stock"> Seulement produits en stock</option>
                 </select>
-
+                {{ csrf_field() }}
                 <button type="submit" class="btn" name="button">Filtrer les produits</button>
             </form>
         </div>

@@ -36,8 +36,10 @@ Route::get('/', 'ProductController@getHome');
 
 Route::post('/search', 'ProductController@findProduct');
 
+Route::post('/filter', 'ProductController@postFilterCategory');
 
-// TEMPORAIRE A SUPPRIMER 
+
+// TEMPORAIRE A SUPPRIMER
 Route::get('/cart_temp', function() {
 	return view('cart_temp');
 });
@@ -54,4 +56,3 @@ Route::get('/account', 'AccountController@index');
 Route::get('/category/{id}', 'ProductController@getCategoryProducts');
 
 Route::get('/{id}', 'ProductController@getProduct');
-
