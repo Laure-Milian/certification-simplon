@@ -37,39 +37,25 @@ Route::group([
 
 });
 
+// Routes Home et Products
 Route::get('/home', 'HomeController@index');
-
 Route::get('/', 'ProductController@getHome');
-
 Route::post('/search', 'ProductController@findProduct');
 
-
-// TEMPORAIRE A SUPPRIMER 
-Route::get('/cart_temp', function() {
-	return view('cart_temp');
-});
-
-// AJOUTS LAURE POUR PARTIE ORDER
+// Routes pour OrderController
 Route::get('/order_validation', 'OrderController@index');
-
 Route::post('/validate_order', 'OrderController@createOrder');
 
+// Routes pour AccountController
 Route::get('/account', 'AccountController@index');
-
 Route::get('/delete', 'AccountController@deleteConfirm');
-
 Route::get('/delete/confirm', 'AccountController@deleteUser');
-// FIN AJOUTS LAURE POUR PARTIE ORDER
 
-
-// ROUTES POUR CART
+// Routes pour cart
 Route::get('/cart', 'CartController@index');
-
 Route::post('/add/cart', 'CartController@addToCart');
 
-// FIN ROUTES POUR CART
-
+// Routes dynamiques
 Route::get('/category/{id}', 'ProductController@getCategoryProducts');
-
 Route::get('/{id}', 'ProductController@getProduct');
 
