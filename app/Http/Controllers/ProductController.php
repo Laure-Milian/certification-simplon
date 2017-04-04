@@ -10,7 +10,7 @@ use App\Category;
 class ProductController extends Controller
 {
     public function getHome() {
-      $sellerFavorite = DB::table('products')->max('stock');
+      $sellerFavorite = DB::table('products')->orderBy('stock', 'desc')->first();
       $lastProducts = DB::table('products')->orderBy('id', 'desc')->limit(6)->get();
       $randomProducts = DB::table('products')->inRandomOrder()->limit(2)->get();
 
