@@ -10,8 +10,11 @@ use App\Category;
 class ProductController extends Controller
 {
     public function getHome() {
-    	$products = Product::all();
-    	return view('accueil', ['products' => $products]);
+      $sellerFavorite = DB::table('products')->max('stock');
+      $lastProducts = DB::table('products')->orderBy('id', 'desc')->limit(6)->get();
+      $randomProducts = DB::table('products')->inRandomOrder()->limit(2)->get();
+
+    	return view('accueil', compact(['sellerFavorite', 'lastProducts', 'randomProducts']));
     }
 
     public function getProduct($id) {
@@ -49,7 +52,7 @@ class ProductController extends Controller
         return $released_years;
     }
 
-    public function postFilterCategory(Request $request) { // A terminer
+    public function postFilterCategory(Request $request) {
         $category_id = $request->category_id;
         $author = $request->author;
         $released_year = $request->released_year;
