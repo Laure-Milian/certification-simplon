@@ -3,6 +3,13 @@
 @section('content')
 
 <div class="container">
+
+    <!-- AJOUT POUR AFFICHAGE MESSAGE APRES AJOUT AU PANIER -->
+    @if (session('success'))
+    <div class="alert alert-success" role="alert">{{session('success')}}</div>
+    @endif
+    <!-- FIN AJOUT POUR AFFICHAGE MESSAGE APRES AJOUT AU PANIER -->
+
     <div class="card product-details">
         <div class="row">
             <div class="image-wrapper col-sm-5 ">

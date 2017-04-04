@@ -3,6 +3,12 @@
 @section('content')
 <div class="container">
 
+    <!-- AJOUT POUR AFFICHAGE MESSAGE APRES AJOUT AU PANIER -->
+    @if (session('success'))
+    <div class="alert alert-success" role="alert">{{session('success')}}</div>
+    @endif
+    <!-- FIN AJOUT POUR AFFICHAGE MESSAGE APRES AJOUT AU PANIER -->
+
     <h2><strong> {{ $category->name }} </strong></h2>
     <div class="category-description"> {{ $category->description }} </div>
 

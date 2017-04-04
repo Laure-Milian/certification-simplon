@@ -5,6 +5,7 @@
 <div class="container">
 
 <?php 
+
 session_start() ;
 $_SESSION["cart"] = [
 	[ "product_id" => 1, "name" => "carotte", "price" => 200, "quantity" => 1 ],
