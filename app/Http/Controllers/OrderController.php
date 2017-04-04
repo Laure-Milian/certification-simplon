@@ -29,8 +29,7 @@ class OrderController extends Controller
 
     public function index()
     {
-        session_start();
-        $cart_products = $_SESSION['cart'];
+        $cart_products = session('cart');
         $current_user_id = Auth::user()->id;
         $total_price = Order::getTotalProductsPrice($cart_products);
         $last_order = Order::getLastOrder($current_user_id);
@@ -40,7 +39,6 @@ class OrderController extends Controller
 
     public function createOrder(Request $request) {
         try {
-        session_start();
         $this->validate($request, [
             'first_name' => 'string',
             'last_name' => 'string',
@@ -63,7 +61,7 @@ class OrderController extends Controller
     }
 
     public function reduceStock($request) {
-        $cart_products = $_SESSION['cart'];
+        $cart_products = session('cart');
         foreach ($cart_products as $product) {
             $product_in_db = Product::findOrFail($product["product_id"]);
             $product_in_db->stock = $product_in_db->stock - $product["quantity"];
@@ -72,7 +70,7 @@ class OrderController extends Controller
     }
 
     public function saveOrder($inputs) {
-        $cart_products = $_SESSION['cart'];
+        $cart_products = session('cart');
         $products_total_price = Order::getTotalProductsPrice($cart_products);
         $delivery_cost = Order::getDeliveryCost($inputs->shipping_method);
 

@@ -3,11 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Order;
 
 class CartController extends Controller
 {
     public function index() {
-    	return view('cart');
+      if (session()->has('cart')) {
+        $cart_products = session('cart');
+        $total_price = Order::getTotalProductsPrice($cart_products);
+        return view('cart', ['cart_products' => $cart_products, 'products_total_price' => $total_price]);
+      }
+      else {
+    	 return view('cart'); 
+      }
     }
 
     public function addToCart(Request $request) {
@@ -21,7 +29,6 @@ class CartController extends Controller
         $quantity = $request->quantity;
         array_push($cart, ["product_id" => $product_id, "name" => $name, "price" => $price, "quantity" => $quantity]);
         session(['cart' => $cart]);
-        var_dump(session("cart"));
       }
 
       else {
@@ -43,11 +50,9 @@ class CartController extends Controller
           $quantity = $request->quantity;
           array_push($cart, ["product_id" => $product_id, "name" => $name, "price" => $price, "quantity" => $quantity]);
           session(['cart' => $cart]);
-          var_dump(session("cart"));
         }
         else {
           session(['cart' => $new_cart]);
-          var_dump(session("cart"));
         }
 
         // Renvoie sur la page précédente avec un message confirmant l'ajout au panier
