@@ -6,15 +6,17 @@
 
   <div class="container">
     <div class="row bloc1 col-12">
+
       <div class="col-md-8 product-card card">
 
-          <div class="product-details row">
-            <div class="image-wrapper col-xs-6 col-md-6">
+          <div class="row">
+            <div class="product-details">
+              <div class="image-wrapper col-xs-6 col-md-6">
 
                 <img class="product-image img-responsive" src="http://placekitten.com/g/400/400" />
 
-            </div>
-            <div class="details col-xs-6 col-md-6">
+              </div>
+              <div class="details col-xs-6 col-md-6">
 
                 <h2 class="product-title"> {{ $sellerFavorite->name }} </h2>
                 <p class="product-description"> {{ $sellerFavorite->description }} </p>
@@ -23,19 +25,21 @@
                 @if ($sellerFavorite->stock > 0)
                 <div class="add-to-cart">
                   <form action="/add/cart" method="post">
-                      <input type="hidden" name="product_id" value="{{$sellerFavorite->id}}">
-                      <input type="hidden" name="quantity" value="1">
-                      <button class="btn btn-success" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter au panier</button>
+                    <input type="hidden" name="product_id" value="{{$sellerFavorite->id}}">
+                    <input type="hidden" name="quantity" value="1">
+                    <button class="btn btn-success" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter au panier</button>
                   </form>
                 </div>
                 @endif
 
+              </div>
             </div>
+
           </div>
 
       </div>
+
       <div class="col-md-4">
-        <div class="product-item">
 
           <div class="column">
             @foreach ($randomProducts as $randomProduct)
@@ -68,7 +72,6 @@
             @endforeach
           </div>
 
-        </div>
       </div>
     </div>
   </div>
