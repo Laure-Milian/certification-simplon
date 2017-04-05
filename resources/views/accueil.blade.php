@@ -43,40 +43,49 @@
 
       <!-- RANDOM PRODUCTS -->
 
-      <div class="col-md-4">
+      <div class="col-md-4 col-xs-12">
 
-          <div class="column">
+        <div class="row">
             @foreach ($randomProducts as $randomProduct)
-              <div class="col-xs-12 product-card">
-                  <div class="card card-content">
-                      <div class="image-wrapper-category">
-                          <a href="/{{ $randomProduct->id }}">
-                              <img src="{{ $randomProduct->picture }}" class="img-responsive img-small" alt="Photo de {{ $randomProduct->name }}">
-                          </a>
-                      </div>
-                      <div class="caption caption-card">
-                          <h3 class="category-product-title"><a href="/{{ $randomProduct->id }}">{{ $randomProduct->name }}</a></h3>
 
-                          <div class="category-product-stock">
-                              <h4 class="pull-left"><strong>{{ $randomProduct->price / 100 }} €</strong></h4>
-                              @if ($randomProduct->stock === 0)
-                                <div class="text-danger pull-right">Indisponible</div>
-                              @else
-                                <form action="/add/cart" method="post" class="pull-right">
-                                  <input type="hidden" name="product_id" value="{{$randomProduct->id}}">
-                                  <input type="hidden" name="quantity" value="1">
-                                  <button class="btn btn-success" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter au panier</button>
-                                </form>
-                              @endif
-                          </div>
+              <div class="col-12">
+
+                <div class="product-card card">
+                  <div class="card-content">
+                    <div class=" col-md-6 col-xs-12">
+                      <div class="image-wrapper-home">
+                        <a href="/{{ $randomProduct->id }}">
+                          <img src="{{ $randomProduct->picture }}" class="img-responsive" alt="Photo de {{ $randomProduct->name }}">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="caption caption-card col-md-6 col-xs-12">
+                      <h3 class="category-product-title home-title"><a href="/{{ $randomProduct->id }}">{{ $randomProduct->name }}</a></h3>
+
+                      <div class="home-product-stock">
+                        <h4><strong>{{ $randomProduct->price / 100 }} €</strong></h4>
+                        @if ($randomProduct->stock === 0)
+                        <div class="text-danger">Indisponible</div>
+                        @else
+                        <form action="/add/cart" method="post">
+                          <input type="hidden" name="product_id" value="{{$randomProduct->id}}">
+                          <input type="hidden" name="quantity" value="1">
+                          <button class="btn btn-success" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                        </form>
+                        @endif
 
                       </div>
+                    </div>
                   </div>
-              </div>
+                </div>
+            </div>
+
             @endforeach
+
           </div>
 
       </div>
+
     </div>
   </div>
 

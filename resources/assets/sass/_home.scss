@@ -42,6 +42,21 @@ h1 > a:hover {
     margin: 0;
 }
 
+.home-title{
+  font-size: 1.4em;
+}
+
+.home-product-stock {
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-product-stock > h4 {
+    margin: 0.5em;
+}
+
 .links {
     padding-top: 2.5em;
 }
