@@ -7,6 +7,8 @@
   <div class="container">
     <div class="row bloc1 col-12">
 
+      <!-- FAVORITE PRODUCT -->
+
       <div class="col-md-8 col-xs-12 product-card card">
 
           <div class="row">
@@ -38,6 +40,8 @@
           </div>
 
       </div>
+
+      <!-- RANDOM PRODUCTS -->
 
       <div class="col-md-4">
 
@@ -76,9 +80,7 @@
     </div>
   </div>
 
-  <!-- ***FIN BLOC PHOTOS 1*** -->
-
-  <!-- ***BLOC PHOTOS *** -->
+  <!-- 8 LAST PRODUCTS ADDEDs -->
 
   <div class="container">
     <div class="row">
