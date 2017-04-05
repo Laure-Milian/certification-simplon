@@ -7,16 +7,16 @@
   <div class="container">
     <div class="row bloc1 col-12">
 
-      <div class="col-md-8 product-card card">
+      <div class="col-md-8 col-xs-12 product-card card">
 
           <div class="row">
             <div class="product-details">
-              <div class="image-wrapper col-xs-6 col-md-6">
+              <div class="image-wrapper col-xs-12 col-md-6">
 
                 <img class="product-image img-responsive" src="http://placekitten.com/g/400/400" />
 
               </div>
-              <div class="details col-xs-6 col-md-6">
+              <div class="details col-xs-12 col-md-6">
 
                 <h2 class="product-title"> {{ $sellerFavorite->name }} </h2>
                 <p class="product-description"> {{ $sellerFavorite->description }} </p>
