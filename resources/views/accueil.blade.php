@@ -9,7 +9,7 @@
 
       <!-- FAVORITE PRODUCT -->
 
-      <div class="col-md-8 col-xs-12 product-card card">
+      <div class="col-md-8 col-sm-12 col-xs-12 product-card card">
 
           <div class="row">
             <div class="product-details">
@@ -43,7 +43,7 @@
 
       <!-- RANDOM PRODUCTS -->
 
-      <div class="col-md-4 col-xs-12">
+      <div class="col-md-4 col-sm-12 col-xs-12">
 
         <div class="row">
             @foreach ($randomProducts as $randomProduct)
@@ -65,7 +65,7 @@
                       <div class="home-product-stock">
                         <h4><strong>{{ $randomProduct->price / 100 }} €</strong></h4>
                         @if ($randomProduct->stock === 0)
-                        <div class="text-danger">Indisponible</div>
+                        <div class="text-danger small-danger">Indisponible</div>
                         @else
                         <form action="/add/cart" method="post">
                           <input type="hidden" name="product_id" value="{{$randomProduct->id}}">
