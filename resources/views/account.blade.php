@@ -70,7 +70,6 @@
 					<th>Adresse de livraison</th>
 					<th>Méthode de livraison</th>
 					<th>Coût total de la commande</th>
-					<th>Reçue le</th>
 				</tr>
 				@foreach ($past_orders as $past_order)
 				<tr>
@@ -80,7 +79,6 @@
 					<td>{{$past_order->address}}</td>
 					<td>{{$past_order->shipping_method}}</td>
 					<td>{{$past_order->total_price / 100}} €</td>
-					<td>{{$past_order->delivery_date / 100}}</td>
 				</tr>
 				@endforeach
 			</table>
