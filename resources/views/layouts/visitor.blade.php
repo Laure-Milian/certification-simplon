@@ -18,14 +18,14 @@
   <!-- TITRE -->
   <div class="container-fluid">
     <div class="row title col-12">
-      <div class="col-md-4 col-xs-12">
+      <div class="col-md-3 col-sm-12 col-xs-12">
         <div class="product-nav">
           <h1 class="site"><a href="/">Le Trésor des Loutres Pirates</a></h1>
         </div>
       </div>
 
       <!-- BARRE DE NAVIGATION : CATEGORIES -->
-      <div class="col-md-4 col-xs-8">
+      <div class="col-md-6 col-xs-12">
         <div class="navbar">
          <form class="navbar-form" role="search">
            <ul class="nav navbar-nav">
@@ -41,17 +41,20 @@
          </form>
 
           <!-- BARRE DE NAVIGATION : RECHERCHE PAR NOM DE PRODUIT -->
-          <form action="/search" method="post">
-            <label for="input"></label>
-            <input id="input" type="text" class="form-control" name="search" placeholder="Rechercher un produit">
-            {{ csrf_field() }}
-            <button type="submit">Rechercher</button>
-          </form>
+          <div class="col-sm-12">
+            <form action="/search" method="post" class="form-inline search-bar">
+              <label for="input"></label>
+              <input id="input" type="text" class="form-control" name="search" placeholder="Rechercher un produit">
+              {{ csrf_field() }}
+              <button type="submit">Rechercher</button>
+            </form>
+          </div>
+
        </div>
      </div>
 
     <!-- CONNEXION / INSCRIPTION -->
-     <div class="col-md-4 col-xs-12">
+     <div class="col-md-3 col-xs-12">
       <div class="product-nav">
         <div class="loginPart">
           <div class="form-inline pull-xs-right signUp">

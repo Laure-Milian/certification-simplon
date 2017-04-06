@@ -4,7 +4,7 @@
 
   <!-- ***BLOC PHOTOS 1*** -->
 
-  <div class="container">
+  <div class="container-fluid">
     <div class="row bloc1 col-12">
 
       <!-- FAVORITE PRODUCT -->
@@ -91,7 +91,7 @@
 
   <!-- 8 LAST PRODUCTS ADDEDs -->
 
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-8 col-md-offset-2 col-xs-12">
         <h2 class=""><i class="fa fa-bomb" aria-hidden="true"></i> Les dernières perles des Loutres Pirates</h2>
