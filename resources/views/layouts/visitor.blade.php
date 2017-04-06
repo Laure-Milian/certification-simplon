@@ -60,6 +60,7 @@
           <div class="form-inline pull-xs-right signUp">
               @if (Route::has('login'))
                   <div class="top-right links">
+                      <a href="/cart">Mon panier</a>
                       @if (Auth::check())
                           <a class="logLink" href="{{ url('/home') }}">Home</a>
                       @else
