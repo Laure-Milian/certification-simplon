@@ -35,6 +35,7 @@
                   <form action="/add/cart" method="post">
                     <input type="hidden" name="product_id" value="{{$sellerFavorite->id}}">
                     <input type="hidden" name="quantity" value="1">
+                    {{ csrf_field() }}
                     <button class="btn btn-success" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter au panier</button>
                   </form>
                 </div>
@@ -76,6 +77,7 @@
                         <form action="/add/cart" method="post">
                           <input type="hidden" name="product_id" value="{{$randomProduct->id}}">
                           <input type="hidden" name="quantity" value="1">
+                          {{ csrf_field() }}
                           <button class="btn btn-success" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
                         </form>
                         @endif
@@ -124,6 +126,7 @@
                           <form action="/add/cart" method="post" class="pull-right">
                             <input type="hidden" name="product_id" value="{{$lastProduct->id}}">
                             <input type="hidden" name="quantity" value="1">
+                            {{ csrf_field() }}
                             <button class="btn btn-success" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter au panier</button>
                           </form>
                         @endif
