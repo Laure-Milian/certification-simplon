@@ -4,11 +4,9 @@
 
 <div class="container">
 
-    <!-- AJOUT POUR AFFICHAGE MESSAGE APRES AJOUT AU PANIER -->
     @if (session('success'))
     <div class="alert alert-success" role="alert">{{session('success')}}</div>
     @endif
-    <!-- FIN AJOUT POUR AFFICHAGE MESSAGE APRES AJOUT AU PANIER -->
 
     <div class="card product-details">
         <div class="row">
@@ -36,11 +34,9 @@
                 @if ($product->stock > 0)
                 <div class="add-to-cart">
                   <form action="/add/cart" method="post">
-                      <!-- Ajouts pour cart ici -->
                       {{csrf_field()}}
                       <input type="hidden" name="name" value="{{$product->name}}">
                       <input type="hidden" name="price" value="{{$product->price}}">
-                      <!-- Fin ajouts pour cart -->
                       <input type="hidden" name="product_id" value="{{$product->id}}">
                       <div class="form-group">
                           <label for="quantity">Quantité : </label>

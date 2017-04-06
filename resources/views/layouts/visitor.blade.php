@@ -62,7 +62,14 @@
                   <div class="top-right links">
                       <a href="/cart">Mon panier</a>
                       @if (Auth::check())
-                          <a class="logLink" href="{{ url('/home') }}">Home</a>
+                          <a class="logLink" href="{{ url('/account') }}">Mon compte</a>
+                          <a href="/logout" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                          </a>
+                          <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                          </form>
                       @else
                           <a class="logLink" href="{{ url('/login') }}">Me connecter</a>
                           <a class="logLink" href="{{ url('/register') }}">M'inscrire</a>
@@ -72,6 +79,9 @@
                 <div class="content">
                     <div class="title m-b-md">
 
+
+                                    </li>
+                                </ul>
                     </div>
                 </div>
             </div>

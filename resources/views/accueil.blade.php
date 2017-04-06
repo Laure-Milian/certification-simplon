@@ -11,6 +11,11 @@
   <!-- ***BLOC PHOTOS 1*** -->
 
   <div class="container-fluid">
+
+    @if (session('success'))
+    <div class="alert alert-success" role="alert">{{session('success')}}</div>
+    @endif
+
     <div class="row bloc1 col-12">
 
       <!-- FAVORITE PRODUCT -->
@@ -35,6 +40,8 @@
                   <form action="/add/cart" method="post">
                     <input type="hidden" name="product_id" value="{{$sellerFavorite->id}}">
                     <input type="hidden" name="quantity" value="1">
+                    <input type="hidden" name="name" value="{{$sellerFavorite->name}}">
+                    <input type="hidden" name="price" value="{{$sellerFavorite->price}}">
                     {{ csrf_field() }}
                     <button class="btn btn-success" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter au panier</button>
                   </form>
@@ -77,6 +84,8 @@
                         <form action="/add/cart" method="post">
                           <input type="hidden" name="product_id" value="{{$randomProduct->id}}">
                           <input type="hidden" name="quantity" value="1">
+                          <input type="hidden" name="name" value="{{$randomProduct->name}}">
+                          <input type="hidden" name="price" value="{{$randomProduct->price}}">
                           {{ csrf_field() }}
                           <button class="btn btn-success" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
                         </form>
@@ -126,6 +135,8 @@
                           <form action="/add/cart" method="post" class="pull-right">
                             <input type="hidden" name="product_id" value="{{$lastProduct->id}}">
                             <input type="hidden" name="quantity" value="1">
+                            <input type="hidden" name="name" value="{{$lastProduct->name}}">
+                            <input type="hidden" name="price" value="{{$lastProduct->price}}">
                             {{ csrf_field() }}
                             <button class="btn btn-success" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter au panier</button>
                           </form>

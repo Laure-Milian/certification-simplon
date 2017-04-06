@@ -3,11 +3,9 @@
 @section('content')
 <div class="container">
 
-    <!-- AJOUT POUR AFFICHAGE MESSAGE APRES AJOUT AU PANIER -->
     @if (session('success'))
     <div class="alert alert-success" role="alert">{{session('success')}}</div>
     @endif
-    <!-- FIN AJOUT POUR AFFICHAGE MESSAGE APRES AJOUT AU PANIER -->
 
     <h2><strong> Recherche </strong></h2>
 
@@ -29,11 +27,9 @@
                               <div class="text-danger pull-right">Indisponible</div>
                             @else
                               <form action="/add/cart" method="post" class="pull-right">
-                                <!-- Ajouts pour cart ici -->
                                 {{csrf_field()}}
                                 <input type="hidden" name="name" value="{{$product->name}}">
                                 <input type="hidden" name="price" value="{{$product->price}}">
-                                <!-- Fin ajouts pour cart -->
                                 <input type="hidden" name="product_id" value="{{$product->id}}">
                                 <input type="hidden" name="quantity" value="1">
                                 <button class="btn btn-success" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter au panier</button>
