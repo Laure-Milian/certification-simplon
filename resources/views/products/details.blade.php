@@ -32,6 +32,8 @@
                         <span class="text-success">En Stock</span>
                     @endif
                 </div>
+
+                @if ($product->stock > 0)
                 <div class="add-to-cart">
                   <form action="/add/cart" method="post">
                       <!-- Ajouts pour cart ici -->
@@ -42,11 +44,12 @@
                       <input type="hidden" name="product_id" value="{{$product->id}}">
                       <div class="form-group">
                           <label for="quantity">Quantité : </label>
-                          <input type="number" class="quantity" name="quantity" value="1" min="0" max="20">
+                          <input type="number" class="quantity" name="quantity" value="1" min="1" max="{{ $product->stock }}">
                       </div>
                       <button class="btn btn-success" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter au panier</button>
                   </form>
-              </div>
+                </div>
+                @endif
 
             </div>
         </div>

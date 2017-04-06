@@ -41,6 +41,8 @@ Route::group([
 Route::get('/home', 'HomeController@index');
 Route::get('/', 'ProductController@getHome');
 Route::post('/search', 'ProductController@findProduct');
+Route::post('/filter', 'ProductController@postFilterCategory');
+
 
 // Routes pour OrderController
 Route::get('/order_validation', 'OrderController@index');
@@ -58,4 +60,3 @@ Route::post('/add/cart', 'CartController@addToCart');
 // Routes dynamiques
 Route::get('/category/{id}', 'ProductController@getCategoryProducts');
 Route::get('/{id}', 'ProductController@getProduct');
-

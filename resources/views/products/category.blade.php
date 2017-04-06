@@ -3,6 +3,34 @@
 @section('content')
 <div class="container">
 
+    <div class="row">
+        <div class="filters col-md-12 col-xs-12">
+            <form class="form-inline" action="/filter" method="post">
+                <input type="hidden" name="category_id" value="{{$category->id}}">
+
+                <select class="form-control" name="author">
+                    <option value="">Auteur</option>
+                    @foreach ($authors as $author)
+                    <option value="{{ $author->author }}">{{ $author->author }}</option>
+                    @endforeach
+                </select>
+                <select class="form-control" name="released_year">
+                    <option value="">Année de Parution</option>
+                    @foreach ($released_years as $released_year)
+                    <option value="{{ $released_year->released_year }}">{{ $released_year->released_year }}</option>
+                    @endforeach
+                </select>
+                <select class="form-control" name="stock">
+                    <option value="">Stocks</option>
+                    <option value="">Tous produits</option>
+                    <option value="stock"> Seulement produits en stock</option>
+                </select>
+                {{ csrf_field() }}
+                <button type="submit" class="btn" name="button">Filtrer les produits</button>
+            </form>
+        </div>
+    </div>
+
     <!-- AJOUT POUR AFFICHAGE MESSAGE APRES AJOUT AU PANIER -->
     @if (session('success'))
     <div class="alert alert-success" role="alert">{{session('success')}}</div>
