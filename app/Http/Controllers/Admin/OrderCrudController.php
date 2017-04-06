@@ -81,8 +81,9 @@ class OrderCrudController extends CrudController
         // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('reorder');
 
         // ------ CRUD DETAILS ROW
-        // $this->crud->enableDetailsRow();
-        // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('details_row');
+        $this->crud->enableDetailsRow();
+        // NOTE: you also need to do allow access to the right users: 
+        $this->crud->allowAccess('details_row');
         // NOTE: you also need to do overwrite the showDetailsRow($id) method in your EntityCrudController to show whatever you'd like in the details row OR overwrite the views/backpack/crud/details_row.blade.php
 
         // ------ REVISIONS
@@ -113,6 +114,23 @@ class OrderCrudController extends CrudController
         // $this->crud->orderBy();
         // $this->crud->groupBy();
         // $this->crud->limit();
+    }
+
+    public function showDetailsRow($id) 
+    {
+        $this->crud->setModel("App\Models\Order");
+        $this->crud->setRoute("admin/order");
+        $this->crud->setEntityNameStrings('order', 'orders_product');
+
+        $this->crud->hasAccessOrFail('details_row');
+
+        //$this->data['entry'] = $this->crud->getEntry($id);
+        $this->data['crud'] = $this->crud;
+        // $this->data['fields'] = $this->crud->getUpdateFields($id);
+        //$this->data['title'] = trans('backpack::crud.edit') . ' ' . $this->crud->entity_name;
+
+        // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
+        return view('crud::details_row', $this->data);
     }
 
 	public function store(StoreRequest $request)

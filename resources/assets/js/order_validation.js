@@ -3,7 +3,7 @@
 		
 		init: function() {
 			this.listeners();
-			this.setShippingCost("shipping_method_1");
+			this.setShippingCost("point-relais");
 			this.getLastOrder();
 		},
 
@@ -15,13 +15,13 @@
 
 		setShippingCost: function(shipping_method) {
 			let shipping_cost;
-			if (shipping_method === "shipping_method_1") {
+			if (shipping_method === "point-relais") {
 				shipping_cost = 0;
 			}
-			else if (shipping_method === "shipping_method_2") {
+			else if (shipping_method === "colissimo") {
 				shipping_cost = 50;
 			}
-			else if (shipping_method === "shipping_method_3") {
+			else if (shipping_method === "chronopost") {
 				shipping_cost = 300;
 			}
 			$(".delivery_cost").text(shipping_cost / 100);

@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\ProductRequest as StoreRequest;
-use App\Http\Requests\ProductRequest as UpdateRequest;
+use App\Http\Requests\UserRequest as StoreRequest;
+use App\Http\Requests\UserRequest as UpdateRequest;
 
-class ProductCrudController extends CrudController
+class UserCrudController extends CrudController
 {
 
     public function setUp()
@@ -19,9 +19,9 @@ class ProductCrudController extends CrudController
 		| BASIC CRUD INFORMATION
 		|--------------------------------------------------------------------------
 		*/
-        $this->crud->setModel("App\Models\Product");
-        $this->crud->setRoute("admin/product");
-        $this->crud->setEntityNameStrings('product', 'products');
+        $this->crud->setModel("App\Models\User");
+        $this->crud->setRoute("admin/user");
+        $this->crud->setEntityNameStrings('user', 'users');
 
         /*
 		|--------------------------------------------------------------------------
@@ -30,42 +30,21 @@ class ProductCrudController extends CrudController
 		*/
 
         $this->crud->setFromDb();
-        $this->crud->setColumns(['name', 'description', 'price', 'stock', 'category_id', 'picture']);
+        $this->crud->setColumns(['name', 'email', 'created_at', 'updated_at', 'admin']);
         $this->crud->addFields([
             'name' => 'name', 
-            'description' => 'description',
-            'price' => 'price', 
-            'stock' => 'stock',
-            ['name' => 'category_id',
-            'label' => "Category",
-            'type' => 'model_function',
-            // 'options' => [
-            //     '1' => 'Policier / Thriller', 
-            //     '2' => 'Science fiction', 
-            //     '3' => 'Aventure', 
-            //     '4' => 'Autobiographie', 
-            //     '5' => 'Epouvante / Horreur', 
-            //     '6' => 'Fantastique'],
+            'email' => 'email',
+            'created_at' => 'created_at',
+            'updated_at' => 'updated_at',
             [
-             'function_name' => 'autoUpdateCategory', // the method in your Model
-            ],
-            'allows_null' => false],
-            [ 
-            'name' => 'picture',
-            'label' => 'Picture',
-            'type' => 'browse',
-            'readonly' => true
+            'name'        => 'admin',
+            'label'       => 'Admin status',
+            'type'        => 'radio',
+            'options'     => [
+                0 => "False",
+                1 => "True"],
             ]
-        ]);
-
-        $this->crud->addFilter([
-          'name' => 'stock',
-          'type' => 'dropdown',
-          'label'=> 'Status'], 
-          ['0' => 'Not available'], 
-          function($value) { 
-            $this->crud->addClause('where', 'stock', $value);
-        });
+            ]);
 
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
@@ -98,9 +77,8 @@ class ProductCrudController extends CrudController
         // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('reorder');
 
         // ------ CRUD DETAILS ROW
-        //$this->crud->enableDetailsRow();
-        // NOTE: you also need to do allow access to the right users: 
-        // $this->crud->allowAccess('details_row');
+        // $this->crud->enableDetailsRow();
+        // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('details_row');
         // NOTE: you also need to do overwrite the showDetailsRow($id) method in your EntityCrudController to show whatever you'd like in the details row OR overwrite the views/backpack/crud/details_row.blade.php
 
         // ------ REVISIONS

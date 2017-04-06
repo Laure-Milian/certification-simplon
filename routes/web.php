@@ -17,17 +17,24 @@ Route::get('/', function () {
 
 // Générés par Laravel pour l'authentication :
 Auth::routes();
+Route::get('logout', function(){
+	auth()->logout();
+	return redirect()->to('/');
+});
 
 //Admin routes
 Route::group([
-  'prefix' => config('backpack.base.route_prefix', 'admin'),
-  'middleware' => ['admin'],
-  'namespace' => 'Admin'
+  'prefix' => 'admin',
+  'middleware' =>  ['admin'],
 ], function() {
 
-  CRUD::resource('category', 'CategoryCrudController');
-  CRUD::resource('product', 'ProductCrudController');
-  CRUD::resource('order', 'OrderCrudController');
+  Route::get('/', function(){return '';}); //Ne pas changer cette route
+  CRUD::resource('category', 'Admin\CategoryCrudController');
+  CRUD::resource('product', 'Admin\ProductCrudController');
+  CRUD::resource('order', 'Admin\OrderCrudController');
+  CRUD::resource('user', 'Admin\UserCrudController');
+  CRUD::resource('orderProduct', 'Admin\OrderProductCrudController');
+
 });
 
 Route::get('/home', 'HomeController@index');
@@ -47,11 +54,22 @@ Route::get('/cart_temp', function() {
 // AJOUTS LAURE POUR PARTIE ORDER
 Route::get('/order_validation', 'OrderController@index');
 
-Route::post('/validate_order', 'OrderController@sendOrder');
+Route::post('/validate_order', 'OrderController@createOrder');
 
 Route::get('/account', 'AccountController@index');
+
+Route::get('/delete', 'AccountController@deleteConfirm');
+
+Route::get('/delete/confirm', 'AccountController@deleteUser');
 // FIN AJOUTS LAURE POUR PARTIE ORDER
 
+
+// ROUTES POUR CART
+Route::get('/cart', 'CartController@index');
+
+Route::post('/add/cart', 'CartController@addToCart');
+
+// FIN ROUTES POUR CART
 
 Route::get('/category/{id}', 'ProductController@getCategoryProducts');
 

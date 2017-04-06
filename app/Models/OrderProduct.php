@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class Product extends Model
+class OrderProduct extends Model
 {
     use CrudTrait;
 
@@ -14,12 +14,11 @@ class Product extends Model
 	| GLOBAL VARIABLES
 	|--------------------------------------------------------------------------
 	*/
-
-    protected $table = 'products';
+    protected $table = 'order_products';
     //protected $primaryKey = 'id';
     public $timestamps = false;
-    // protected $guarded = ['id'];
-    protected $fillable = ['name', 'description', 'price', 'stock', 'category_id', 'picture'];
+    protected $guarded = ['id'];
+    protected $fillable = ['name', 'order_id', 'product_id', 'quantity_product'];
     // protected $hidden = ['id'];
     // protected $dates = [];
 
@@ -28,16 +27,14 @@ class Product extends Model
 	| FUNCTIONS
 	|--------------------------------------------------------------------------
 	*/
-	public function autoUpdateCategory() {
-		
-	}
+
     /*
 	|--------------------------------------------------------------------------
 	| RELATIONS
 	|--------------------------------------------------------------------------
 	*/
-	public function products() {
-		return $this->hasMany('App\Models\Product', 'product');
+	public function orderProducts() {
+		return $this->hasMany('App\Models\Order', 'orders_products');
 	}
     /*
 	|--------------------------------------------------------------------------

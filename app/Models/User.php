@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class Product extends Model
+class User extends Model
 {
     use CrudTrait;
 
@@ -15,11 +15,11 @@ class Product extends Model
 	|--------------------------------------------------------------------------
 	*/
 
-    protected $table = 'products';
+    protected $table = 'users';
     //protected $primaryKey = 'id';
     public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['name', 'description', 'price', 'stock', 'category_id', 'picture'];
+    protected $fillable = ['name', 'email', 'created_at', 'updated_at', 'admin'];
     // protected $hidden = ['id'];
     // protected $dates = [];
 
@@ -28,16 +28,14 @@ class Product extends Model
 	| FUNCTIONS
 	|--------------------------------------------------------------------------
 	*/
-	public function autoUpdateCategory() {
-		
-	}
+
     /*
 	|--------------------------------------------------------------------------
 	| RELATIONS
 	|--------------------------------------------------------------------------
 	*/
 	public function products() {
-		return $this->hasMany('App\Models\Product', 'product');
+		return $this->hasMany('App\Models\User', 'user');
 	}
     /*
 	|--------------------------------------------------------------------------
